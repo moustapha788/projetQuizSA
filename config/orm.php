@@ -13,7 +13,7 @@ function json_to_array(string $key):array{
 //! Enregistrement et Mis a jour des donnees du fichier avec la fonction array_to_json (save_data)
 function array_to_json(string $key,array $dataArray):int{
     $dataArray[$key];
-    $dataJson=json_encode($dataArray);
-    file_put_contents(PATH_DB,$dataJson);
+    $dataJson=json_encode($dataArray,JSON_FORCE_OBJECT);
+    file_put_contents(PATH_DB,$dataJson,LOCK_EX);
     return 1;
 }
