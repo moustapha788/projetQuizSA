@@ -1,4 +1,3 @@
-user
 <?php
 /***
 * ! LE CONTROLLER D'UTLISATEUR( gère toutes les actions de l'utilisateur(admin et/ou joueur) )
@@ -10,7 +9,7 @@ user
 */
 if($_SERVER['REQUEST_METHOD']=="POST"){
     if(isset($_REQUEST['action'])){
-        if($_REQUEST['action']==""){
+        if($_REQUEST['action']=="accueil"){
             echo "Traiter ";
         }
     }
@@ -18,15 +17,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 
 /**
-Traitement des Requetes GET
-    click sur un lien
-    click sur un siasie dans l'url
-    click sur un lien
+* ! Traitement des Requetes GET
+    *click sur un lien qui a été définie par le programmeur
+    *renseigner sur l'url
+    *redirection qui  charge une vue
 */
 if($_SERVER['REQUEST_METHOD']=="GET"){
     if(isset($_REQUEST['action'])){
-        if($_REQUEST['action']==""){
-            echo "Charger la page ";
+        if($_REQUEST['action']=="accueil"){
+            require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
         }
     }else{
         echo "Charger la page";
