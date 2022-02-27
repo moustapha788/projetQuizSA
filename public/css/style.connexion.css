@@ -1,4 +1,101 @@
-body {
-    background-color: rgba(0, 0, 128, 0.603);
-    color: white;
+/***
+*! connexion-form
+***/
+
+.content-form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connexion-form {
+    width: 70vw;
+    height: 70vh;
+    background-color: #fff;
+    padding: 0;
+}
+
+.libele-form {
+    background-color: var(--color-of-blue);
+    height: 75px;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+
+.libele-form h2 {
+    margin: 2.5%;
+}
+
+.control-group {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-of-whitesmoke);
+}
+
+.forms-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-of-gray);
+    border: 1px solid var(--color-of-gray);
+    margin: 2.5%;
+    height: 75px;
+}
+
+.forms-group:hover {
+    background-color: var(--color-of-orange);
+    color: #fff;
+}
+
+.label-connexion {
+    min-width: 20%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ic-connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+}
+
+.input-connexion {
+    border: none;
+    border-left: 1px solid var(--color-of-gray);
+    outline: none;
+    width: 70%;
+    height: 80%;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-of-gray);
+    margin: 1% 0;
+}
+
+.last-control {
+    margin: 2.5%;
+    display: flex;
+    align-items: center;
+    color: var(--color-of-gray);
+    font-size: 2em;
+}
+
+.last-control #connect {
+    /* align-self: center; */
+    width: 200px;
+    height: 50px;
+    margin-right: 40px;
+    color: var(--color-of-blue);
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
 }
