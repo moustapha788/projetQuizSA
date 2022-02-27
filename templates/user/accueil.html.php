@@ -1,6 +1,14 @@
-accueil de l'utilisateur connecté
-menu
-
-   
+<?php
+//! header
+require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.inc.html.php");
+?>
     
-<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."script.js"?>"></script>
+
+
+
+    
+
+<?php
+//! footer
+require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.inc.html.php");
+?>
