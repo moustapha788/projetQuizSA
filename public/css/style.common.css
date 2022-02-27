@@ -1,0 +1,44 @@
+:root {
+    --color-of-header: #052426;
+    --color-of-gray: #b9b9b9;
+    --color-of-blue: #51bfd0;
+    --color-of-whitesmoke: #f0eef1;
+    --color-of-orange: #8d6d24;
+}
+
+body {
+    /* background: url(<?= WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'img-bg.jpg' ?>); */
+    background: var(--color-of-header);
+    /* background-attachment: fixed; */
+    /* background-size: cover; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/**** 
+*! HEADER 
+****/
+
+
+/**** 
+*! MENU 
+****/
+
+
+/**** 
+*! FOOTER 
+****/
