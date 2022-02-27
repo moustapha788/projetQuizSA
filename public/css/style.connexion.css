@@ -4,7 +4,7 @@
 
 .content-form {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@
 
 .connexion-form {
     width: 70vw;
-    height: 70vh;
+    height: 60vh;
     background-color: #fff;
     padding: 0;
 }
@@ -69,10 +69,16 @@
     margin-left: 1%;
 }
 
+.ic-connexion img {
+    width: 50px;
+    height: 50px;
+}
+
 .input-connexion {
     border: none;
     border-left: 1px solid var(--color-of-gray);
     outline: none;
+    text-indent: 2%;
     width: 70%;
     height: 80%;
     font-size: 1.5em;
@@ -90,7 +96,6 @@
 }
 
 .last-control #connect {
-    /* align-self: center; */
     width: 200px;
     height: 50px;
     margin-right: 40px;
@@ -98,4 +103,14 @@
     font-size: 1.2em;
     border: none;
     border-radius: 5px;
+}
+
+.last-control a {
+    color: var(--color-of-blue);
+    display: flex;
+}
+
+.ERROR-LAY {
+    text-align: center;
+    font-size: 1.2em;
 }
