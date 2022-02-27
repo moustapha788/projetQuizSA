@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 
-/**
+/** 
 * ! Traitement des Requetes GET
     *click sur un lien qui a été définie par le programmeur
     *renseigner sur l'url
@@ -24,10 +24,20 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 */
 if($_SERVER['REQUEST_METHOD']=="GET"){
     if(isset($_REQUEST['action'])){
+        if(!is_connect()){
+            header("location:".WEB_ROOT);
+            exit();
+        }
         if($_REQUEST['action']=="accueil"){
             require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
         }
     }else{
-        echo "Charger la page";
+        header("location:".WEB_ROOT);
+        exit();;
     }
+}
+
+
+function lister_joueur():array{
+    return find_users_by_role(ROLE_JOUEUR);
 }

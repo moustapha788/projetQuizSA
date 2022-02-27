@@ -28,6 +28,8 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     if(isset($_REQUEST['action'])){
         if($_REQUEST['action']=="connexion"){
             require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+        }elseif($_REQUEST['action']=="deconnexion"){
+            log_out();
         }
     }else{
         require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");
@@ -38,19 +40,19 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 
 
 
-// ! fonction connexion
+// ! fonction de connexion
 
 function connexion(string $login,string $password):void{
     $errors=[];
 
     // todo vérification login
-    champ_obligatoire("login",$login,$errors,'login obligatoire');
+    champ_obligatoire("login",$login,$errors,'Login obligatoire');
     if(!isset($errors['login'])){
         valid_email("login",$login,$errors);
     }
 
     // todo vérification password
-    champ_obligatoire("password",$password,$errors,'mot de passe obligatoire');
+    champ_obligatoire("password",$password,$errors,'Mot de passe obligatoire');
     if(!isset($errors['login'])){
         valid_password("password",$password,$errors);
     }
@@ -67,7 +69,7 @@ function connexion(string $login,string $password):void{
             header('location:'.WEB_ROOT.'?controller=user&action=accueil');
         }else{
             // Inexistence de l'utilisateur
-            $errors['connexion']='login ou mot de passe incorrect';
+            $errors['connexion']='Login ou mot de passe incorrect';
             $_SESSION[KEY_ERRORS]=$errors;
             header("location:".WEB_ROOT);
             exit();
@@ -79,6 +81,12 @@ function connexion(string $login,string $password):void{
         header("location:".WEB_ROOT);
         exit();
     }
- 
+}
 
+// ! fonction de deconnexion
+function log_out(){
+    session_destroy();
+    session_unset();
+    header('location:'.WEB_ROOT);
+    exit();
 }
