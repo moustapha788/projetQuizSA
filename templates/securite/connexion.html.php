@@ -1,5 +1,7 @@
-
-<link rel="stylesheet" href="<?= WEB_PUBLIC."css".DIRECTORY_SEPARATOR."style.connexion.css" ?>">
+<?php
+//! header
+require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.inc.html.php");
+?>
 
 <form action="<?= WEB_ROOT ?>" method="POST">
 <input type="hidden" name="controller" value="securite">
@@ -17,10 +19,15 @@
     
 </form>
 
-<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."script.js"?>"></script>
 
 <!--  -->
 <?php
 echo '<pre>';
 var_dump($_SESSION);
+?>
+
+<?php
+//! footer
+require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.inc.html.php");
+?>
 
