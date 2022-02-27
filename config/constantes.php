@@ -49,3 +49,11 @@ define("KEY_ERRORS","errors");
 ? Clé d'utilisateur connecté
 */
 define("KEY_USER_CONNECT","user-connect");
+/* 
+? Clé d'utilisateur joueur
+*/
+define('ROLE_JOUEUR','ROLE_JOUEUR');
+/* 
+? Clé d'utilisateur admin
+*/
+define('ROLE_ADMIN','ROLE_ADMIN');
