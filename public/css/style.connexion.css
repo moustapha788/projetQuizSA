@@ -11,30 +11,27 @@
 }
 
 .connexion-form {
-    width: 70vw;
-    height: 60vh;
+    width: 45vw;
+    height: 65vh;
     background-color: #fff;
     padding: 0;
 }
 
-.libele-form {
+.libele-form-connect {
+    padding: 5%;
     background-color: var(--color-of-blue);
-    height: 75px;
+    height: 100px;
     display: flex;
     align-items: center;
     font-size: 2em;
 }
 
-.libele-form h2 {
-    margin: 2.5%;
-}
-
-.control-group {
+.control-group-connect {
     height: 90%;
+    padding: 3% 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--color-of-whitesmoke);
 }
 
 .forms-group {
@@ -43,30 +40,16 @@
     align-items: center;
     color: var(--color-of-gray);
     border: 1px solid var(--color-of-gray);
+    background-color: var(--color-of-whitesmoke);
     margin: 2.5%;
-    height: 75px;
-}
-
-.forms-group:hover {
-    background-color: var(--color-of-orange);
-    color: #fff;
-}
-
-.label-connexion {
-    min-width: 20%;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
+    height: 90px;
 }
 
 .ic-connexion {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1%;
+    margin: 0 4%;
 }
 
 .ic-connexion img {
@@ -75,20 +58,26 @@
 }
 
 .input-connexion {
+    background-color: var(--color-of-whitesmoke);
     border: none;
     border-left: 1px solid var(--color-of-gray);
     outline: none;
-    text-indent: 2%;
-    width: 70%;
-    height: 80%;
-    font-size: 1.5em;
+    text-indent: 5%;
+    width: 98%;
+    height: 100%;
+    font-size: 2em;
     font-weight: bold;
     color: var(--color-of-gray);
     margin: 1% 0;
 }
 
+.input-connexion:focus::placeholder {
+    text-align: right;
+    color: var(--color-of-blue);
+}
+
 .last-control {
-    margin: 2.5%;
+    margin: 5%;
     display: flex;
     align-items: center;
     color: var(--color-of-gray);
@@ -96,18 +85,33 @@
 }
 
 .last-control #connect {
-    width: 200px;
-    height: 50px;
-    margin-right: 40px;
-    color: var(--color-of-blue);
+    width: 250px;
+    height: 80px;
+    margin-right: 20px;
+    padding: 1% 5%;
+    background-color: var(--color-of-blue);
+    color: #fff;
     font-size: 1.2em;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.last-control #connect:hover {
+    background-color: green;
+}
+
+.last-control #connect:active {
+    background-color: var(--color-of-orange);
 }
 
 .last-control a {
-    color: var(--color-of-blue);
+    color: var(--color-of-gray);
     display: flex;
+}
+
+.last-control a:hover {
+    color: var(--color-of-orange);
 }
 
 .ERROR-LAY {

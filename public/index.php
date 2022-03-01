@@ -13,6 +13,6 @@ require_once dirname(dirname(__FILE__))."/config/validator.php";
 require_once dirname(dirname(__FILE__))."/config/orm.php";
 //inclusion des roles
 require_once dirname(dirname(__FILE__))."/config/role.php";
-//Chargement du router
+//Chargement du router toujour au dernier
 require_once dirname(dirname(__FILE__))."/config/router.php";
 
