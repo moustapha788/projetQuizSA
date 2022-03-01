@@ -1,6 +1,6 @@
 <?php
 /***
-*! LE ROUTEUR (Il qui permet de définir les routes constituées d'informations qu'il commnuniquent au CONTROLLER)
+*! LE ROUTEUR (Il  permet de définir les routes constituées d'informations qu'il commnuniquent au CONTROLLER)
 */
 
 if(isset($_REQUEST['controller']) ){
