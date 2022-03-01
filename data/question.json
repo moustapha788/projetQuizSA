@@ -1,0 +1,13 @@
+{
+    "questions": [{
+        "libele": "Quel est la capitale du Sénégal",
+        "nombreDePoints": 5,
+        "type": "qcm",
+        "reponse": [{
+            "rep1": "Dakar",
+            "rep2": "",
+            "rep3": ""
+        }]
+
+    }]
+}
