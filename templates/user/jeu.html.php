@@ -1,1 +1,1 @@
-bienvenue au jeu
+<h1 style="font-size: 2em; margin: 20% auto; text-align: center; " >Bienvenue dans le jeu.En raison de maintenance , veillez revenir dans les prochains jours</h1> 

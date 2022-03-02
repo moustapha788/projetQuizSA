@@ -5,12 +5,9 @@
             
             <li id="label-game"><h1>Le plaisir de jouer</h1></li>
 
-            <?php /* deconnexion */ if(is_connect()):?>
+            <?php /* deconnexion  */ if(is_connect() && is_player())   :?>
                 <li id="log-out"><a href="<?=WEB_ROOT."?controller=securite&action=deconnexion"?>">Déconnexion</a></li>
             <?php endif; ?>                
         </ul>
     </nav>
 </header>
-
-
-

@@ -78,7 +78,7 @@
 
                 <!-- //!press on submit button -->
                 <div class="last-control">
-                    <button id="register" type="submit">Créer un compte</button>
+                    <button id="register" type="submit" disabled>Créer un compte</button>
                 </div>
             </div>        
         </form>
@@ -88,7 +88,6 @@
         <figure>
             <img src="<?=  WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.'avatar-login.jpg'  ?>" alt="avatar joueur" srcset="">
         </figure>
-        <small>avatar joueur</small>
     </div>
 
 

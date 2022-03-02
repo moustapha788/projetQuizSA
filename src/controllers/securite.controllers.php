@@ -22,10 +22,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 $password2=$_POST['password2'];
                 $file=$_POST['file'];
                 if(is_valid_inscription()){
-                    header("location: ".WEB_ROOT."?controller=securite&action=connexion" );
+                    header("location:".WEB_ROOT."?controller=securite&action=inscription" );
                     exit();
                 }
-                sign_in($prenom,$nom,$login,$password1,$password2,$file);
+                register_user($prenom,$nom,$login,$password1,$password2,$file);
                 // inscription_jeu();                    
             }
         }
@@ -51,6 +51,13 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         }
     }else{
         presentation_connexion();
+        /* 
+        if(isset($_SESSION[KEY_USER_CONNECT])){
+            presentation_connexion();
+        }else{
+            echo "pour l'instant on n'utlise pas de cookies pour stocker l'information de connexion.Veillez vous rediriger vers votre accueil";
+        } 
+         */
     }
 }
 
@@ -111,7 +118,7 @@ function log_out(){
 }
 
 // ! fonction pour l'inscription d'un joueur
-function sign_in(string $prenom, string $nom,string $login, string $password1, string $password2,$file):void{
+function register_user(string $prenom, string $nom,string $login, string $password1, string $password2,$file):void{
     $errors=[];
 
     // todo vérification s'ils sont des champs vides
@@ -130,6 +137,9 @@ function save_a_new_user(){
 
 }
 
+
+
+
 // !fonction presenter le jeu
 function inscription_jeu(){
     ob_start();
@@ -139,13 +149,14 @@ function inscription_jeu(){
 }
 
 
+// !fonction presenter page de connexion
 function presentation_connexion(){
     ob_start();
     require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");   
     $content_for_views=ob_get_clean();
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
 }
-// !fonction presenter le jeu
+
 function presentation_inscription(){
     // if(!is_connect()){
         ob_start();

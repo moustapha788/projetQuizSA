@@ -1,8 +1,6 @@
 
-
-
-<div class="table-joueurs">
-    <h2>Liste des joueurs</h2>
+<div class="table-joueurs" id="table-joueurs">
+    <h2>Liste des joueurs par score</h2>
     <table>
         <thead>
             <tr>
@@ -16,11 +14,15 @@
                 <tr>
                     <td><?=$joueur['nom']?></td>
                     <td><?=$joueur['prenom']?></td>
-                    <td><?=$joueur['score']?></td>
+                    <td><?=$joueur['score']." pts"?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <div class="bascule">
+        <button>Précédent</button>
+        <button>Suivant</button>
+    </div>
 </div>
 
 

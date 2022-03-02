@@ -31,14 +31,39 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         }
         if($_REQUEST['action']=="accueil"){
             if(is_admin()){
-                // connexion d'un admin
-                lister_joueur();
+                // connexion d'un admin vue par défaut de l'admin: //!dashboard + lister_joueur
+                // 
+                presenter_vue_l_joueurs("liste.joueur.html.php","user");
             }else if(is_player()){
                 // connexion d'un joueur
                 presenter_jeu();
             }
-        }elseif($_REQUEST['action']=="liste.joueur"){
-            lister_joueur();
+        }elseif($_REQUEST['action']=="dashboard"){
+            if(isset($_REQUEST['view'])){
+                if(is_admin()){
+                    switch($_REQUEST['view']){
+                        // lister_joueur();
+                        case "liste.joueurs":
+                            presenter_vue_l_joueurs("liste.joueur.html.php","user");
+                            break;
+                        // Créer Admin;
+                        case "creer.admin":
+                            presenter_vue("inscription.html.php","securite");
+                            break;
+                        case "creer.questions":
+                            presenter_vue("creer.questions.html.php","user");
+                            break;
+                        case "liste.questions":
+                            presenter_vue("liste.questions.html.php","user");
+                            break;
+                    }
+                }
+                if(is_player()){
+                    echo 'Attention  je peux vous porter pliante ! ';
+                }
+            }else{
+                presenter_vue_l_joueurs("liste.joueur.html.php","user");
+            }
         }else{
             echo "cette page n'existe pas";
         }
@@ -48,15 +73,9 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     }
 }
 
-// !fonction lister les joueurs
-function lister_joueur(){
-    // Appel du model pour chercher les joueurs
-    ob_start();
-    $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."liste.joueur.html.php");   
-    $content_for_views=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
-}
+
+
+
 
 // !fonction presenter le jeu
 function presenter_jeu(){
@@ -66,3 +85,32 @@ function presenter_jeu(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
 }
 
+// !fonction presenter la vue lister questions sur le tableau de bord de l'admin
+function presenter_vue_l_questions(string $view,string $the_controller):void{
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    ob_start();
+    $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    $content_for_layout=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+}
+// !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
+function presenter_vue_l_joueurs(string $view,string $the_controller):void{
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    ob_start();
+    $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    $content_for_layout=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+}
+// !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
+function presenter_vue(string $view,string $the_controller):void{
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    ob_start();
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    $content_for_layout=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+}

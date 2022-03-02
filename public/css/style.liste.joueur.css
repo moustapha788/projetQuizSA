@@ -1,0 +1,44 @@
+.table-joueurs {
+    margin: 2% 0;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 600px;
+    max-height: 68vh;
+    background-color: #fff;
+    text-align: center;
+    color: var(--color-of-gold);
+    border: 1px solid var(--color-of-blue);
+    border-radius: 15px;
+}
+
+.table-joueurs h2 {
+    font-size: 2.5em;
+    margin: 2%;
+}
+
+.table-joueurs table th {
+    font-size: 2em;
+}
+
+.table-joueurs table td {
+    font-size: 2em;
+    font-weight: thin;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.bascule {
+    width: 90%;
+    margin: 5% 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bascule button {
+    font-size: 1.5em;
+    color: #fff;
+    border: none;
+    background-color: var(--color-of-blue);
+    padding: 1% 3%;
+}

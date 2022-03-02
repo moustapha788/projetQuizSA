@@ -1,7 +1,7 @@
 .content-register {
-    width: 50%;
-    height: 700px;
-    margin: 2% auto;
+    width: 85%;
+    height: 95%;
+    margin: 1% auto;
     display: flex;
     background-color: #fff;
     border-radius: 2%;
@@ -9,7 +9,7 @@
 }
 
 .check-info {
-    width: 60%;
+    width: 50%;
     padding: 2% 5%;
     display: flex;
     flex-direction: column;
@@ -83,7 +83,7 @@
 }
 
 .label-connexion {
-    margin: 2%;
+    margin: 1%;
     font-size: 1.5em;
     cursor: pointer;
 }
@@ -91,7 +91,7 @@
 input[type="text"].input-register,
 input[type="email"].input-register,
 input[type="password"].input-register {
-    height: 50px;
+    height: 40px;
     width: 100%;
     font-size: 1.5em;
     text-indent: 5%;
@@ -101,6 +101,7 @@ input[type="password"].input-register {
 
 input[type="file"],
 #register {
+    margin-top: 2%;
     background-color: var(--color-of-blue);
     border: none;
     font-size: 1.2em;

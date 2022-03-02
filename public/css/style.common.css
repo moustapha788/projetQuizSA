@@ -2,8 +2,12 @@
     --color-of-header: #052426;
     --color-of-gray: #b9b9b9;
     --color-of-blue: #51bfd0;
+    --color-of-aqua: #39ddd6;
     --color-of-whitesmoke: #f0eef1;
     --color-of-orange: #8d6d24;
+    --color-of-gold: #8d8070;
+    --color-of-dashboard: #f2f2f2;
+    --color-of-active-setting: #4daf7c;
 }
 
 body {
@@ -56,6 +60,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 40px;
 }
 
 .main-header * {
@@ -84,6 +89,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 
 .nav ul li a {
