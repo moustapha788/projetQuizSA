@@ -8,6 +8,8 @@
     --color-of-gold: #8d8070;
     --color-of-dashboard: #f2f2f2;
     --color-of-active-setting: #4daf7c;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
 }
 
 body {

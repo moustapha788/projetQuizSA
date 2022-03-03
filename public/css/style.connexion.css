@@ -39,10 +39,22 @@
     justify-content: center;
     align-items: center;
     color: var(--color-of-gray);
-    border: 1px solid var(--color-of-gray);
+    border: 1pt solid var(--color-of-gray);
     background-color: var(--color-of-whitesmoke);
     margin: 2.5%;
     height: 90px;
+}
+
+.forms-group.error {
+    visibility: visible;
+}
+
+.forms-group.error {
+    border: 2px solid var(--error-color);
+}
+
+.forms-group.success {
+    border: 2px solid var(--success-color);
 }
 
 .ic-connexion {
@@ -91,7 +103,7 @@
     padding: 1% 5%;
     background-color: var(--color-of-blue);
     color: #fff;
-    font-size: 1.2em;
+    font-SIZE: 1.2em;
     border: none;
     border-radius: 5px;
     cursor: pointer;

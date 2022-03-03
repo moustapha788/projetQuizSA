@@ -71,7 +71,7 @@
                 <div class="forms-group-inscrip choose-file">
                     <Label class="label-connexion" for="file">Avatar</Label>
                     <input class="input-register" type="file" name="file" accept="image/jpg, image/png, image/jpeg" id="file" placeholder="Choississez votre avatar">
-                    <div class="btn-upload">Choisir votre avatar</div>
+                    <!-- <div class="btn-upload">Choisir votre avatar</div> -->
 
                 </div>
 

@@ -32,7 +32,6 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         if($_REQUEST['action']=="accueil"){
             if(is_admin()){
                 // connexion d'un admin vue par défaut de l'admin: //!dashboard + lister_joueur
-                // 
                 presenter_vue_l_joueurs("liste.joueur.html.php","user");
             }else if(is_player()){
                 // connexion d'un joueur
@@ -89,7 +88,7 @@ function presenter_jeu(){
 function presenter_vue_l_questions(string $view,string $the_controller):void{
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
     ob_start();
-    $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
+    // $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
     require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
     $content_for_layout=ob_get_clean();
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
