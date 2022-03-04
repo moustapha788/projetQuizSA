@@ -40,9 +40,10 @@ function valid_password(string $key,string $data,array &$errors,string $message=
 
 function is_matched_password($password1,$password2):bool{
     return $password1===$password2;
+
 }
 
+
 function is_valid_inscription(){
-    // valid_password();
-    // is_matched_password();
+    
 }

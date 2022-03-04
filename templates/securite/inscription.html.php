@@ -1,4 +1,3 @@
-
 <section class="content-register">
     <!-- // todo check information to sign in -->
     <div class="check-info" id="check-info">
@@ -22,6 +21,7 @@
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="prenom">Prénom</Label>
                     <input class="input-register" type="text"  name="prenom" id="prenom" class="login" placeholder="entrez votre prenom">
+                    <small class="the_error_small">tddttdtfffbfbfnbfhfhfdrejfezjfefzefhfezfezfgezgfzeufefezfuberro</small>
                 </div>
                 <?php /* gestion des erreurs */ if (isset($errors['prenom'])):?>
                     <small class="ERROR-LAY RED-ERROR"><?= $errors['prenom'] ?></small>
@@ -32,6 +32,7 @@
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="nom">Nom</Label>
                     <input class="input-register" type="text"  name="nom" id="nom" class="login" placeholder="entrez votre nom">
+                    <small class="the_error_small">erro</small>
                 </div>
                 <?php /* gestion des erreurs */ if (isset($errors['nom'])):?>
                     <small class="ERROR-LAY RED-ERROR"><?= $errors['nom'] ?></small>
@@ -71,13 +72,13 @@
                 <div class="forms-group-inscrip choose-file">
                     <Label class="label-connexion" for="file">Avatar</Label>
                     <input class="input-register" type="file" name="file" accept="image/jpg, image/png, image/jpeg" id="file" placeholder="Choississez votre avatar">
-                    <!-- <div class="btn-upload">Choisir votre avatar</div> -->
+                    <label class="btn-upload" for="file" >Choisir un fichier</label>
                 </div>
 
 
                 <!-- //!press on submit button -->
                 <div class="last-control">
-                    <button id="register" type="submit" disabled>Créer un compte</button>
+                    <button id="register" type="submit" >Créer un compte</button>
                 </div>
             </div>        
         </form>

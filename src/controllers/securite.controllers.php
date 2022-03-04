@@ -15,24 +15,23 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             connexion($login,$password);
         }elseif($_REQUEST['action']=="inscription"){
             if(isset($_POST)){
+                /* 
                 $prenom=$_POST['prenom'];
                 $nom=$_POST['nom'];
                 $login=$_POST['login'];
                 $password1=$_POST['password1'];
                 $password2=$_POST['password2'];
                 $file=$_POST['file'];
+                 */
                 if(is_valid_inscription()){
-                    header("location:".WEB_ROOT."?controller=securite&action=inscription" );
-                    exit();
+                    // header("location:".WEB_ROOT."?controller=securite&action=inscription" );
+                    // exit();
                 }
-                register_user($prenom,$nom,$login,$password1,$password2,$file);
-                // inscription_jeu();                    
+                // register_user($prenom,$nom,$login,$password1,$password2,$file);
             }
         }
     }
 }
-
-
 
 /**
 *!Traitement des Requetes GET
@@ -61,8 +60,33 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
     }
 }
 
-
-
+/* 
+!===============================================================================================================================================
+                            todo fonctions
+!===============================================================================================================================================
+ */
+/*
+*****************
+****************
+***************
+**************
+!#FONCTION
+!#connexion d'un utilisateur (admin ou nouveau joueur) et 
+!#déconnexion d'un utilisateur (admin ou nouveau joueur)
+!#presenter la page d'inscription
+*************
+************
+***********
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*/
 
 
 // ! fonction pour la connexion
@@ -83,7 +107,7 @@ function connexion(string $login,string $password):void{
     }
 
 
-
+    
     if(count($errors)==0){
         // todo contraintes de validation front réussie
         // Appel d'une fonction du models
@@ -116,7 +140,44 @@ function log_out(){
     header('location:'.WEB_ROOT);
     exit();
 }
+// !fonction presenter la page de connexion
+function presentation_connexion(){
+    ob_start();
+    require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");   
+    $content_for_views=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+}
 
+/*
+*****************
+****************
+***************
+**************
+!#fonction inscrire un utilisateur (admin ou nouveau joueur)
+!#presenter la page d'inscription
+*************
+************
+***********
+**********
+*********
+********
+*******
+******
+*****
+****
+***
+**
+*/
+
+// !fonction presenter la page d'inscription
+function presentation_inscription(){
+    // if(!is_connect()){
+        ob_start();
+        require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."inscription.html.php");   
+        $content_for_views=ob_get_clean();
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    // }
+}
 // ! fonction pour l'inscription d'un joueur
 function register_user(string $prenom, string $nom,string $login, string $password1, string $password2,$file):void{
     $errors=[];
@@ -137,31 +198,3 @@ function save_a_new_user(){
 
 }
 
-
-
-
-// !fonction presenter le jeu
-function inscription_jeu(){
-    ob_start();
-    require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."inscription.html.php");   
-    $content_for_views=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
-}
-
-
-// !fonction presenter page de connexion
-function presentation_connexion(){
-    ob_start();
-    require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");   
-    $content_for_views=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
-}
-
-function presentation_inscription(){
-    // if(!is_connect()){
-        ob_start();
-        require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."inscription.html.php");   
-        $content_for_views=ob_get_clean();
-        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
-    // }
-}
