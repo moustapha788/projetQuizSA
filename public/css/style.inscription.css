@@ -6,6 +6,7 @@
     background-color: #fff;
     border-radius: 2%;
     color: var(--color-of-gray);
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.6);
 }
 
 .check-info {
@@ -42,21 +43,19 @@
 .choose-avatar figure {
     width: 250px;
     height: 250px;
+    border-radius: 50%;
+    border: 8px solid var(--color-of-blue);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     clip-path: circle(50% at 50% 50%);
-    background-color: red;
-}
-
-.choose-avatar small {
-    margin-top: 3%;
 }
 
 .choose-avatar img {
-    width: auto;
-    height: auto;
+    clip-path: circle(50% at 50% 50%);
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -109,4 +108,9 @@ input[type="file"],
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+}
+
+.forms-group-inscrip:hover .label-connexion {
+    color: var(--color-of-blue);
+    font-weight: bold;
 }

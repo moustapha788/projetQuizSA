@@ -72,7 +72,6 @@
                     <Label class="label-connexion" for="file">Avatar</Label>
                     <input class="input-register" type="file" name="file" accept="image/jpg, image/png, image/jpeg" id="file" placeholder="Choississez votre avatar">
                     <!-- <div class="btn-upload">Choisir votre avatar</div> -->
-
                 </div>
 
 
@@ -86,7 +85,7 @@
     <!-- // todo choose your avatar -->
     <div class="choose-avatar" id="choose-avatar">
         <figure>
-            <img src="<?=  WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.'avatar-login.jpg'  ?>" alt="avatar joueur" srcset="">
+            <img src="<?=  WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.'generatedPhotos'  ?>" alt="avatar joueur" srcset="">
         </figure>
     </div>
 

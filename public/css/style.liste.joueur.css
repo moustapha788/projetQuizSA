@@ -2,7 +2,6 @@
     margin: 2% 0;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     width: 600px;
     max-height: 68vh;
     background-color: #fff;
@@ -10,6 +9,7 @@
     color: var(--color-of-gold);
     border: 1px solid var(--color-of-blue);
     border-radius: 15px;
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.6);
 }
 
 .table-joueurs h2 {
