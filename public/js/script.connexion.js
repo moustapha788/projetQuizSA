@@ -1,4 +1,4 @@
-const form = document.querySelector('.content-form form');
+const formCon = document.getElementById('connexion-form');
 const login = document.getElementById('login');
 const password = document.getElementById('password');
 
@@ -60,9 +60,8 @@ function isValidPassword(password) {
 
 
 
-
 //Even listeners--------------------------------------------------------
-form.addEventListener('submit', function(e) {
+formCon.addEventListener('submit', function(e) {
     //Blocage de la soumission du formulaire
     e.preventDefault();
 

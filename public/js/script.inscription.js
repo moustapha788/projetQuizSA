@@ -1,107 +1,132 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
+const formReg = document.getElementById('connexion-form-inscrip');
+const nom = document.getElementById('nom');
+const prenom = document.getElementById('prenom');
 const email = document.getElementById('email');
-const passwordReg = document.getElementById('passwordReg');
+const password1 = document.getElementById('password1');
 const password2 = document.getElementById('password2');
 
-//Functions-------------------------------------------------------------
-function showError(input, message) { //Afficher les messages d'erreur
-    const formControl = input.parentElement;
-    formControl.className = 'form-control error';
-    const small = formControl.querySelector('small');
+//todo Functions-------------------------------------------------------------
+function showErrorReg(input, message) { //Afficher les messages d'erreur
+    const formControlReg = input.parentElement;
+    formControlReg.className = 'forms-group-inscrip  error';
+    const small = formControlReg.querySelector('small');
     small.innerText = message;
 }
-//
-function showSuccess(input) {
-    const formControl = input.parentElement;
-    formControl.className = 'form-control success';
+// !
+function showSuccessReg(input) {
+    const formControlReg = input.parentElement;
+    formControlReg.className = 'forms-group-inscrip  success';
 }
-//
-function checkEmail(input) { //Tester si l'email est valide :  javascript : valid email
+// !
+function checkEmailReg(input) { //Tester si l'email est valide :  javascript : valid email
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (re.test(input.value.trim().toLowerCase())) {
-        showSuccess(input);
+        showSuccessReg(input);
     } else {
-        showError(input, `Email is not valid!`);
+        showErrorReg(input, "L'email est invalide!");
     }
 }
-//
+// !
 function checkRequired(inputArray) { // Tester si les champs ne sont pas vides
     inputArray.forEach(input => {
-        if (input.value.trim() === '') {
-            showError(input, `${getFieldName(input)} is required`);
+        if (input.value === '') {
+            showErrorReg(input, `${getFieldNameReg(input)} est obligatoire`);
         } else {
-            showSuccess(input);
+            showSuccessReg(input);
         }
     });
 }
-//
-function getFieldName(input) { //Retour le nom de chaque input en se basant sur son id
+
+// !
+function getFieldNameReg(input) {
+    //Retour le nom de chaque input en se basant sur son id
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
-//
-function checkLength(input, min, max) { //Tester la longueur de la valeur  d'un input
-    if (input.value.length < min) {
-        showError(input, `${getFieldName(input)} must be at least ${min} characters!`)
-    } else if (input.value.length > max) {
-        showError(input, `${getFieldName(input)} must be less than ${max} characters !`);
-    } else {
-        showSuccess(input);
-    }
-}
-//
+
+// ! 
 function checkPasswordMatch(input1, input2) {
     if (input1.value !== input2.value) {
-        showError(input2, 'Passwords do not match!');
+        showErrorReg(input2, 'Les mots de passe ne correspondent pas !');
     }
 }
+// !
+function isValidEmail(email) {
+    //Tester si l'email est valide
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
-
-
-
-
-//Even listeners--------------------------------------------------------
-form.addEventListener('submit', function(e) {
+// todo Even listeners--------------------------------------------------------
+window.addEventListener('load', () => {
+    const theinput = document.querySelectorAll(".control-group-inscription input");
+    theinput.forEach(input => {
+        input.value = '';
+    });
+})
+formReg.addEventListener('submit', function(e) {
     e.preventDefault(); //Bloquer la soumission du formulaire
+    // ! compte le nombre d'rreurs
+    var cptErrors = 0;
 
-
-    checkRequired([username, email, password, password2]);
-    //
-    checkLength(username, 3, 15);
-    checkLength(password, 6, 25);
-    checkEmail(email);
-    checkPasswordMatch(password, password2);
-
-
-
-    function isValidEmail(email) { //Tester si l'email est valide
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+    checkRequired([prenom, nom, email, password1, password2]);
+    checkEmailReg(email);
+    // !
+    function isValidPasswordReg(password) {
+        motif = password.value.trim();
+        re = /^(?=.*\d).{6,}$/;
+        if (password.value === '') {
+            showErrorReg(password, 'le mot de passe  est obligatoire!');
+            cptErrors++;
+        } else if (password.value.trim().length < 6) {
+            showErrorReg(password, 'Mettez 6 caractères au moins');
+            cptErrors++;
+        } else if (!(re.test(motif))) {
+            showErrorReg(password, 'respectez le format: au moins 1 lettre et une chiffre');
+            cptErrors++;
+        } else {
+            showSuccessReg(password);
+        }
     }
-    if (username.value === '') {
-        showError(username, 'Username is required!');
-    } else {
-        showSuccess(username);
+    // !
+    function vérifierLongueurEtFormat(input, min, max, cptErrors) {
+        if (input.value === '') {
+            showErrorReg(input, `Le ${getFieldNameReg(input)} est obligatoire!`);
+            cptErrors++;
+        } else {
+            if (input.value.trim().length < min) {
+                showErrorReg(input, `Le ${getFieldNameReg(input)} doit étre au minimum ${min} caractères!`);
+                cptErrors++;
+            } else if (input.value.trim().length > max) {
+                showErrorReg(input, `Le ${getFieldNameReg(input)} doit étre au maximum ${max} caractères!`);
+            } else {
+                showSuccessReg(input);
+            }
+        }
     }
-
+    // ! Prenom
+    vérifierLongueurEtFormat(prenom, 3, 15, cptErrors);
+    // ! Nom
+    vérifierLongueurEtFormat(nom, 3, 15, cptErrors);
+    // ! Password 1
+    isValidPasswordReg(password1);
+    // ! Password 2
+    isValidPasswordReg(password2);
+    // ! Email
     if (email.value === '') {
-        showError(email, 'Email is required!');
+        showErrorReg(email, "L'email est obligatoire!");
+        cptErrors++;
+    } else if (email.value.trim().length === 0) {
+        showErrorReg(email, "Le prénom ne peut être composé d'espace vide!");
     } else if (!isValidEmail(email.value)) {
-        showError(email, 'Email is not valid!');
+        showErrorReg(email, "L'email est invalide!");
+        cptErrors++;
     } else {
-        showSuccess(email);
+        showSuccessReg(email);
     }
 
-    if (password.value === '') {
-        showError(password, 'password is required!');
-    } else {
-        showSuccess(password);
-    }
-
-    if (password2.value === '') {
-        showError(password2, 'Password 2 is required!');
-    } else {
-        showSuccess(password2);
+    // ! SOUMISSION DU FORMULAIRE SI PAS D'ERREUR
+    if (cptErrors === 0) {
+        e.target.submit();
     }
 });

@@ -4,10 +4,12 @@
     height: 100%;
     background-color: red;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.459)), url(../img/logo-SA.png) no-repeat;
     background-size: cover;
+    color: white;
 }
 
 .bienvenue-joueur h1,

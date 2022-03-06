@@ -20,7 +20,7 @@ if(isset($_SESSION[KEY_ERRORS])){
 
             <!--//!login -->
             <div class="forms-group">
-                <input class="input-connexion" type="text"  name="login" id="login" class="login" placeholder="Login">
+                <input class="input-connexion" type="text"  name="login" id="login" autofocus class="login" placeholder="Login">
                 <small class="ic-connexion"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-login.png"?>" alt=""></small>
             </div>
             <p class="ERROR-LAY"></p>
