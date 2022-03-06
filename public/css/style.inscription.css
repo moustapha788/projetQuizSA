@@ -157,6 +157,17 @@ input[type="file"] {
 
 .forms-group-inscrip.error input {
     border-color: var(--error-color);
+    animation: clignoterIns 0.5s alternate infinite;
+}
+
+@keyframes clignoterIns {
+    from {
+        border-color: #fff;
+        background-color: #fff;
+    }
+    to {
+        border-color: #f00;
+    }
 }
 
 .forms-group-inscrip small {

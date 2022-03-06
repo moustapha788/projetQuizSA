@@ -15,15 +15,20 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             connexion($login,$password);
         }elseif($_REQUEST['action']=="inscription"){
             $infos_new_user=[];
-            if (!is_connect()) {
-                collectInfos($infos_new_user,ROLE_JOUEUR);
-                presenter_vue_bienvenue_nouveau_JOUEUR($infos_new_user);
+            collectInfos($infos_new_user);
+            if(is_user_in_file($infos_new_user)){
+                header("location:".WEB_ROOT."?controller=securite&action=inscription");
+            }else{
+                if (!is_connect()) {
+                    collectInfos($infos_new_user);
+                    presenter_vue_bienvenue_nouveau_JOUEUR($infos_new_user);
+                }
+                if(is_connect() && $_SESSION[KEY_USER_CONNECT]['role']==ROLE_ADMIN){
+                    collectInfos($infos_new_user,ROLE_ADMIN);
+                    presenter_vue_bienvenue_nouveau_ADMIN($infos_new_user);
+                }
+                register_user($infos_new_user/* $file */);
             }
-            if(is_connect() && $_SESSION[KEY_USER_CONNECT]['role']==ROLE_ADMIN){
-                collectInfos($infos_new_user,ROLE_ADMIN);
-                presenter_vue_bienvenue_nouveau_ADMIN($infos_new_user);
-            }
-            register_user($infos_new_user/* $file */);
         }
     }
 }
@@ -45,13 +50,6 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         }
     }else{
         presentation_connexion();
-        /*
-        if(isset($_SESSION[KEY_USER_CONNECT])){
-            presentation_connexion();
-        }else{
-            echo "pour l'instant on n'utlise pas de cookies pour stocker l'information de connexion.Veillez vous rediriger vers votre accueil";
-        }
-         */
     }
 }
 
@@ -119,7 +117,6 @@ function connexion(string $login,string $password):void{
             header("location:".WEB_ROOT);
             exit();
         }
-
     }else{
         // erreur de validation
         $_SESSION[KEY_ERRORS]=$errors;
@@ -127,7 +124,6 @@ function connexion(string $login,string $password):void{
         exit();
     }
 }
-
 // ! fonction pour la déconnexion
 function log_out(){
     session_destroy();
@@ -192,12 +188,12 @@ function presentation_inscription(){
 
 
 // !fff
-function collectInfos(array &$infos_new_user,string $role):array{
+function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR):array{
     $infos_new_user=[];
-    $infos_new_user["nom"]=$_POST['nom'];
-    $infos_new_user["prenom"]=$_POST['prenom'];
-    $infos_new_user["login"]=$_POST['login'];
-    $infos_new_user["password"]=$_POST['password1'];
+    $infos_new_user["nom"]=strip_tags(trim($_POST['nom']));
+    $infos_new_user["prenom"]=strip_tags(trim($_POST['prenom']));
+    $infos_new_user["login"]=strip_tags(trim($_POST['login']));
+    $infos_new_user["password"]=strip_tags(trim($_POST['password1']));
     $infos_new_user["role"]=$role;
     $infos_new_user["score"]=0;
     // $file=$_POST['file'];

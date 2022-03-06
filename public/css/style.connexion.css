@@ -52,6 +52,18 @@
 
 .forms-group.error {
     border: 2px solid var(--error-color);
+    animation: clignoterCon 0.5s alternate infinite;
+}
+
+@keyframes clignoterCon {
+    from {
+        border-color: #fff;
+        background-color: #fff;
+    }
+    to {
+        border-color: #f00;
+        background-color: #f00;
+    }
 }
 
 .forms-group.success {
