@@ -14,21 +14,16 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             $password=$_POST['password'];
             connexion($login,$password);
         }elseif($_REQUEST['action']=="inscription"){
-            if(isset($_POST)){
-                /* 
-                $prenom=$_POST['prenom'];
-                $nom=$_POST['nom'];
-                $login=$_POST['login'];
-                $password1=$_POST['password1'];
-                $password2=$_POST['password2'];
-                $file=$_POST['file'];
-                 */
-                if(is_valid_inscription()){
-                    // header("location:".WEB_ROOT."?controller=securite&action=inscription" );
-                    // exit();
-                }
-                // register_user($prenom,$nom,$login,$password1,$password2,$file);
+            $infos_new_user=[];
+            if (!is_connect()) {
+                collectInfos($infos_new_user,ROLE_JOUEUR);
+                presenter_vue_bienvenue_nouveau_JOUEUR($infos_new_user);
             }
+            if(is_connect() && $_SESSION[KEY_USER_CONNECT]['role']==ROLE_ADMIN){
+                collectInfos($infos_new_user,ROLE_ADMIN);
+                presenter_vue_bienvenue_nouveau_ADMIN($infos_new_user);
+            }
+            register_user($infos_new_user/* $file */);
         }
     }
 }
@@ -50,17 +45,17 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         }
     }else{
         presentation_connexion();
-        /* 
+        /*
         if(isset($_SESSION[KEY_USER_CONNECT])){
             presentation_connexion();
         }else{
             echo "pour l'instant on n'utlise pas de cookies pour stocker l'information de connexion.Veillez vous rediriger vers votre accueil";
-        } 
+        }
          */
     }
 }
 
-/* 
+/*
 !===============================================================================================================================================
                             todo fonctions
 !===============================================================================================================================================
@@ -71,8 +66,8 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 ***************
 **************
 !#FONCTION
-!#connexion d'un utilisateur (admin ou nouveau joueur) et 
-!#déconnexion d'un utilisateur (admin ou nouveau joueur)
+!#connexion d'un utilisateur (admin ou nouveau joueur) et
+!#dnnexion d'un utilisateur (admin ou nouveau joueur)
 !#presenter la page d'inscription
 *************
 ************
@@ -103,11 +98,11 @@ function connexion(string $login,string $password):void{
     // todo vérification password
     champ_obligatoire("password",$password,$errors,'Mot de passe obligatoire');
     if(!isset($errors['login'])){
-        valid_password("password",$password,$errors);
+        // valid_password("password",$password,$errors);
     }
 
 
-    
+
     if(count($errors)==0){
         // todo contraintes de validation front réussie
         // Appel d'une fonction du models
@@ -126,7 +121,7 @@ function connexion(string $login,string $password):void{
         }
 
     }else{
-        // erreur de validation 
+        // erreur de validation
         $_SESSION[KEY_ERRORS]=$errors;
         header("location:".WEB_ROOT);
         exit();
@@ -143,11 +138,27 @@ function log_out(){
 // !fonction presenter la page de connexion
 function presentation_connexion(){
     ob_start();
-    require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");   
+    require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."connexion.html.php");
     $content_for_views=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
 }
-
+// !fonction presenter la vue de bienvenue du nouveau joueur
+function presenter_vue_bienvenue_nouveau_JOUEUR($infos_new_user):void{
+    ob_start();
+    $theNewUser=$infos_new_user;
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."bienvenue.JOUEUR.html.php");
+    $content_for_views=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
+}
+// !fonction presenter la vue de bienvenue du nouveau admin
+function presenter_vue_bienvenue_nouveau_ADMIN($infos_new_user):void{ 
+    ob_start();
+    $theNewUser=$infos_new_user;
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."bienvenue.ADMIN.html.php");
+    $content_for_layout=ob_get_clean();
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
+}
 /*
 *****************
 ****************
@@ -173,28 +184,39 @@ function presentation_connexion(){
 function presentation_inscription(){
     // if(!is_connect()){
         ob_start();
-        require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."inscription.html.php");   
+        require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."inscription.html.php");
         $content_for_views=ob_get_clean();
-        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
     // }
 }
-// ! fonction pour l'inscription d'un joueur
-function register_user(string $prenom, string $nom,string $login, string $password1, string $password2,$file):void{
-    $errors=[];
 
+
+// !fff
+function collectInfos(array &$infos_new_user,string $role):array{
+    $infos_new_user=[];
+    $infos_new_user["nom"]=$_POST['nom'];
+    $infos_new_user["prenom"]=$_POST['prenom'];
+    $infos_new_user["login"]=$_POST['login'];
+    $infos_new_user["password"]=$_POST['password1'];
+    $infos_new_user["role"]=$role;
+    $infos_new_user["score"]=0;
+    // $file=$_POST['file'];
+    return $infos_new_user;
+}
+// ! fonction pour l'inscription d'un joueur
+function register_user(array $infos_new_user/* $file */):void{
+    
+    /* 
+    $errors=[];
     // todo vérification s'ils sont des champs vides
     champ_obligatoire("prenom",$prenom,$errors,'Login obligatoire');
     champ_obligatoire("nom",$nom,$errors,'Login obligatoire');
     champ_obligatoire("login",$login,$errors,'Login obligatoire');
     champ_obligatoire("password1",$password1,$errors,'Login obligatoire');
     champ_obligatoire("password2",$password2,$errors,'Login obligatoire');
-
-
-    save_a_new_user();
-}
-
-function save_a_new_user(){
-   
+ */
+    $dataJson=array_to_json($infos_new_user,'users');
+    file_put_contents(PATH_DB,$dataJson);
 
 }
 

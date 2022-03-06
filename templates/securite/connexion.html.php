@@ -23,7 +23,7 @@ if(isset($_SESSION[KEY_ERRORS])){
                 <input class="input-connexion" type="text"  name="login" id="login" class="login" placeholder="Login">
                 <small class="ic-connexion"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-login.png"?>" alt=""></small>
             </div>
-            <p class="ERROR-LAY">Error</p>
+            <p class="ERROR-LAY"></p>
             <?php /* gestion des erreurs */ if (isset($errors['login'])):?>
                 <small class="ERROR-LAY RED-ERROR"><?= $errors['login'] ?></small>
             <?php endif; ?>
@@ -33,14 +33,14 @@ if(isset($_SESSION[KEY_ERRORS])){
                 <input class="input-connexion" type="password"  name="password" id="password" class="password" placeholder="Password">
                 <small class="ic-connexion"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-password.png"?>" alt=""></small>
             </div>
-            <p class="ERROR-LAY">Error</p>
+            <p class="ERROR-LAY"></p>
             <?php /* todogestion des erreurs */  if (isset($errors['password'])):?>
                 <small class="ERROR-LAY RED-ERROR"><?= $errors['password'] ?></small>
             <?php endif; ?>
                 
             <!-- //!press on submit button -->
             <div class="last-control">
-                <button id="connect" type="submit" na>Connexion</button>
+                <button id="connect" type="submit" >Connexion</button>
                 <a href="<?= WEB_ROOT."?controller=securite&action=inscription" ?>">S'inscrire pour jouer </a>
             </div>
         </div>        

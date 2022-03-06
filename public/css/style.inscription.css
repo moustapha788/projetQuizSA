@@ -10,8 +10,8 @@
 }
 
 .check-info {
-    width: 50%;
-    padding: 2% 5%;
+    width: 60%;
+    padding: 1% 5%;
     display: flex;
     flex-direction: column;
 }
@@ -142,4 +142,28 @@ input[type="file"] {
     right: 0;
     top: 15%;
     font-size: 1.2em;
+}
+
+
+/* ================== */
+
+.forms-group-inscrip input:focus {
+    outline: 0;
+}
+
+.forms-group-inscrip.success input {
+    border-color: var(--success-color);
+}
+
+.forms-group-inscrip.error input {
+    border-color: var(--error-color);
+}
+
+.forms-group-inscrip small {
+    visibility: hidden;
+}
+
+.forms-group-inscrip.error small {
+    visibility: visible;
+    color: var(--error-color);
 }

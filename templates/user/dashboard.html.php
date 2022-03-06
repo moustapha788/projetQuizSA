@@ -28,19 +28,19 @@
                     </li>
 
                     <!-- // todo Créer Admin-->
-                    <li class="nav-items-amdin" id="nav-items-amdin">
+                    <li class="nav-items-amdin active-setting" id="nav-items-amdin">
                         <small>Créer Admin</small>
                         <a href="<?= WEB_ROOT.'?controller=user&action=dashboard&view=creer.admin' ?>" class="nav-items-link" id="nav-items-link-cr"><img src="<?=WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'icones'.DIRECTORY_SEPARATOR.'ic-ajout.png'?>" alt="" srcset=""></a>
                     </li>
 
                     <!-- // todo Liste Joueurs-->
-                    <li class="nav-items-amdin" id="nav-items-amdin">
+                    <li class="nav-items-amdin active-setting" id="nav-items-amdin">
                         <small>Liste Joueurs</small>
                         <a href="<?= WEB_ROOT.'?controller=user&action=dashboard&view=liste.joueurs' ?>" class="nav-items-link" id="nav-items-link-lj"><img src="<?=WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'icones'.DIRECTORY_SEPARATOR.'ic-liste.png'?>" alt="" srcset=""></a>
                     </li>
                     
                     <!-- // todo Créer Questions-->
-                    <li class="nav-items-amdin" id="nav-items-amdin">
+                    <li class="nav-items-amdin active-setting" id="nav-items-amdin">
                         <small>Créer Questions</small>
                         <a href="<?= WEB_ROOT.'?controller=user&action=dashboard&view=creer.questions' ?>" class="nav-items-link" id="nav-items-link-cq"><img src="<?=WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'icones'.DIRECTORY_SEPARATOR.'ic-ajout.png'?>" alt="" srcset=""></a>
                     </li>

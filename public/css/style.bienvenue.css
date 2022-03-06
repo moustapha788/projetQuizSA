@@ -1,0 +1,16 @@
+.bienvenue-joueur,
+.bienvenue-admin {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.459)), url(../img/logo-SA.png) no-repeat;
+    background-size: cover;
+}
+
+.bienvenue-joueur h1,
+.bienvenue-admin h1 {
+    font-size: 3em;
+}

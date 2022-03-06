@@ -5,7 +5,7 @@
 
 // !chargement du modèle car il en le controler en a besoin
 require_once(PATH_SRC."models".DIRECTORY_SEPARATOR."user.models.php");
-/** 
+/**
  * ? Traitement des Requetes POST
 */
 if($_SERVER['REQUEST_METHOD']=="POST"){
@@ -17,18 +17,18 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 
-/** 
+/**
 * ! Traitement des Requetes GET
     *click sur un lien qui a été définie par le programmeur
     *renseigner sur l'url
     *redirection qui  charge une vue
 */
 if($_SERVER['REQUEST_METHOD']=="GET"){
+    if(!is_connect()){
+        header("location:".WEB_ROOT);
+        exit();
+    }
     if(isset($_REQUEST['action'])){
-        if(!is_connect()){
-            header("location:".WEB_ROOT);
-            exit();
-        }
         if($_REQUEST['action']=="accueil"){
             if(is_admin()){
                 // connexion d'un admin vue par défaut de l'admin: //!dashboard + lister_joueur
@@ -79,37 +79,34 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 // !fonction presenter le jeu
 function presenter_jeu(){
     ob_start();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."jeu.html.php");   
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."jeu.html.php");
     $content_for_views=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
 }
 
 // !fonction presenter la vue lister questions sur le tableau de bord de l'admin
 function presenter_vue_l_questions(string $view,string $the_controller):void{
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
     ob_start();
     // $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
-    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);
     $content_for_layout=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }
 // !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
 function presenter_vue_l_joueurs(string $view,string $the_controller):void{
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
     ob_start();
     $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
-    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);
     $content_for_layout=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }
 // !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
 function presenter_vue(string $view,string $the_controller):void{
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
     ob_start();
-    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);   
+    require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);
     $content_for_layout=ob_get_clean();
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");   
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php"); 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }

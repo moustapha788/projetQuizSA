@@ -15,4 +15,3 @@ require_once dirname(dirname(__FILE__))."/config/orm.php";
 require_once dirname(dirname(__FILE__))."/config/role.php";
 //Chargement du router toujour au dernier
 require_once dirname(dirname(__FILE__))."/config/router.php";
-

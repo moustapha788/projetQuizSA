@@ -7,64 +7,51 @@
             <small>Pour proposer des quizz</small>
         </div>
         <!-- // ! the form -->
-        <form class="connexion-form-inscrip" id="connexion-form" action="<?= WEB_ROOT?>" method="POST" enctype="multipart/form-data">
+        <form class="connexion-form-inscrip" id="connexion-form-inscrip" action="<?= WEB_ROOT?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="controller" value="securite">
             <input type="hidden" name="action" value="inscription">
-            
-            
+
+
             <div class="control-group-inscription">
-                <?php /* gestion des erreurs */  if (isset($errors['inscription'])):?>
-                     <small class="ERROR-LAY RED-ERROR"><?= $errors['inscription'] ?></small>
-                <?php endif; ?>
+
 
                 <!--//! prenom -->
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="prenom">Prénom</Label>
-                    <input class="input-register" type="text"  name="prenom" id="prenom" class="login" placeholder="entrez votre prenom">
-                    <small class="the_error_small">tddttdtfffbfbfnbfhfhfdrejfezjfefzefhfezfezfgezgfzeufefezfuberro</small>
+                    <input class="input-register" type="text"  name="prenom" id="prenom" class="prenom" placeholder="entrez votre prenom">
+                    <small class="the_error_small"></small>
                 </div>
-                <?php /* gestion des erreurs */ if (isset($errors['prenom'])):?>
-                    <small class="ERROR-LAY RED-ERROR"><?= $errors['prenom'] ?></small>
-                <?php endif; ?>
 
 
                 <!--//! nom -->
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="nom">Nom</Label>
-                    <input class="input-register" type="text"  name="nom" id="nom" class="login" placeholder="entrez votre nom">
+                    <input class="input-register" type="text"  name="nom" id="nom" class="nom" placeholder="entrez votre nom">
                     <small class="the_error_small">erro</small>
                 </div>
-                <?php /* gestion des erreurs */ if (isset($errors['nom'])):?>
-                    <small class="ERROR-LAY RED-ERROR"><?= $errors['nom'] ?></small>
-                <?php endif; ?>
+
 
 
                 <!--//! login -->
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="login">Login</Label>
-                    <input class="input-register" type="email"  name="login" id="login" class="login" placeholder="entrez votre email">
+                    <input class="input-register" type="email"  name="login" id="loginReg" class="login" placeholder="entrez votre email">
                 </div>
-                <?php /* gestion des erreurs */ if (isset($errors['login'])):?>
-                    <small class="ERROR-LAY RED-ERROR"><?= $errors['login'] ?></small>
-                <?php endif; ?>
 
 
                 <!--//! password1 -->
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="password1">Password</Label>
-                    <input class="input-register" type="password"  name="password1" id="password1" class="login" placeholder="votre mot de passe">
+                    <input class="input-register" type="password"  name="password1" id="password1Reg" class="password1" placeholder="votre mot de passe">
                 </div>
 
 
                 <!--//! password2 -->
                 <div class="forms-group-inscrip">
                     <Label class="label-connexion" for="password2">Confirm password</Label>
-                    <input class="input-register" type="password"  name="password2" id="password2" class="login" placeholder="confirmez votre mot de passe">
+                    <input class="input-register" type="password"  name="password2" id="passwordReg" class="password2" placeholder="confirmez votre mot de passe">
                 </div>
-                <?php /* //!gestion des erreurs de validation et de correspondance de deux mots de passe  */
-                    if (isset($errors['password'])):?>
-                        <small class="ERROR-LAY RED-ERROR"><?= $errors['password'] ?></small>
-                <?php endif; ?>
+
 
 
 
@@ -80,7 +67,7 @@
                 <div class="last-control">
                     <button id="register" type="submit" >Créer un compte</button>
                 </div>
-            </div>        
+            </div>
         </form>
     </div>
     <!-- // todo choose your avatar -->

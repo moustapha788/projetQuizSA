@@ -10,13 +10,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($tab_joueurs as $joueur):?>
+            <?php $i=0; foreach($tab_joueurs as $joueur):?>
                 <tr>
                     <td><?=$joueur['nom']?></td>
                     <td><?=$joueur['prenom']?></td>
                     <td><?=$joueur['score']." pts"?></td>
+                    
                 </tr>
-            <?php endforeach; ?>
+            <?php $i++; 
+                if($i%10==0){break;} 
+                endforeach; 
+                ?>
         </tbody>
     </table>
     <div class="bascule">

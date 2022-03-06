@@ -8,19 +8,19 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."menu.inc.html.php");
 ?>
     
 
+<div class="home_content">
+    <?php
+    /*****
+    **** PARTIE VARIABLE: contenu des vues
+    *****/
+        if(isset($content_for_views)){
+            echo $content_for_views;
+        }
+    /*****
+    **** 
+    *****/?>
+</div>
 
-<?php
-/*****
-**** PARTIE VARIABLE: contenu des vues
-*****/
-if(isset($content_for_views)){
-    echo $content_for_views;
-}
-
-/*****
-**** 
-*****/
-?>
     
 
 <?php

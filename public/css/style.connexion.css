@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 .connexion-form {
@@ -129,4 +130,5 @@
 .ERROR-LAY {
     text-align: center;
     font-size: 1.2em;
+    /* visibility: hidden; */
 }

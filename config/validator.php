@@ -46,4 +46,5 @@ function is_matched_password($password1,$password2):bool{
 
 function is_valid_inscription(){
     
+    
 }
