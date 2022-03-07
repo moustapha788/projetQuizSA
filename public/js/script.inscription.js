@@ -130,3 +130,38 @@ formReg.addEventListener('submit', function(e) {
         e.target.submit();
     }
 });
+
+
+/*********************
+ ********************
+//! upload de fichier
+ *******************
+ *******************/
+const fileUpload = document.getElementById('fileUpload');
+const chooseAvatar = document.querySelector('.choose-avatar figure');
+const btnUpload = document.getElementById('btn-upload');
+const labelConnexion = document.getElementById("label-connexion");
+btnUpload.addEventListener('click', () => {
+    fileUpload.click();
+    fileUpload.addEventListener("change", getImage, false);
+});
+labelConnexion.addEventListener('click', () => {
+    fileUpload.click();
+    fileUpload.addEventListener("change", getImage, false);
+});
+
+function getImage() {
+    if (chooseAvatar.children.length === 0) {
+        const imageACharger = fileUpload.files[0];
+        let newImg = new Image(imageACharger.width, imageACharger.height);
+        newImg.src = URL.createObjectURL(imageACharger);
+        newImg.id = "new-image";
+        chooseAvatar.appendChild(newImg);
+    } else {
+        const theElements = document.querySelectorAll('#choose-avatar img');
+        theElements.forEach(elt => {
+            chooseAvatar.removeChild(elt);
+        })
+        getImage();
+    }
+}

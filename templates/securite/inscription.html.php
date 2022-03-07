@@ -60,9 +60,9 @@
 
                 <!--//! fichier -->
                 <div class="forms-group-inscrip choose-file">
-                    <Label class="label-connexion" for="file">Avatar</Label>
-                    <input class="input-register" type="file" name="file" accept="image/jpg, image/png, image/jpeg" id="file" placeholder="Choississez votre avatar">
-                    <label class="btn-upload" for="file" >Choisir un fichier</label>
+                    <Label class="label-connexion" id="label-connexion" for="fileUpload">Avatar</Label>
+                    <input class="input-register" type="file" name="fileUpload" accept="image/jpg, image/png, image/jpeg" id="fileUpload" value="" placeholder="Choississez votre avatar">
+                    <label class="btn-upload" for="fileUpload" id="btn-upload" >Choisir un fichier</label>
                     <small class="the_error_small"></small>
                 </div>
 
@@ -77,8 +77,11 @@
     <!-- // todo choose your avatar -->
     <div class="choose-avatar" id="choose-avatar">
         <figure>
-            <img src="<?=  WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.'generatedPhotos'  ?>" alt="avatar joueur" srcset="">
+            
         </figure>
+        <?php  if(isset($error_upload)):?>
+            <p class="error-of-upload-file"> <?= $error_upload ?> </p>
+        <?php endif; ?>
     </div>
 
 

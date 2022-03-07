@@ -21,10 +21,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             }else{
                 if (!is_connect()) {
                     collectInfos($infos_new_user);
+                    $error_upload='';
+                    upload_avatar($error_upload);
                     presenter_vue_bienvenue_nouveau_JOUEUR($infos_new_user);
+
                 }
                 if(is_connect() && $_SESSION[KEY_USER_CONNECT]['role']==ROLE_ADMIN){
                     collectInfos($infos_new_user,ROLE_ADMIN);
+                    $error_upload='';
+                    upload_avatar($error_upload);
                     presenter_vue_bienvenue_nouveau_ADMIN($infos_new_user);
                 }
                 register_user($infos_new_user/* $file */);
@@ -196,7 +201,7 @@ function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR):array{
     $infos_new_user["password"]=strip_tags(trim($_POST['password1']));
     $infos_new_user["role"]=$role;
     $infos_new_user["score"]=0;
-    // $file=$_POST['file'];
+    // $file=$_POST['fileUpload'];
     return $infos_new_user;
 }
 // ! fonction pour l'inscription d'un joueur
@@ -216,3 +221,23 @@ function register_user(array $infos_new_user/* $file */):void{
 
 }
 
+function upload_avatar(&$error_upload=''){
+    if($_FILES['fileUpload']['error']==0){
+        // test taille
+        if($_FILES['fileUpload']['error']>1500000){
+            $error_upload="votre fichier est trop lourd";
+        }
+        // test extension
+        $extension=strrchr($_FILES['fileUpload']['name'],'.');
+        if($extension!='.jpg' || $extension!='.png' || $extension!='.png' || $extension!='.jpeg'){
+            $error_upload="votre fichier n'est pas conforme";
+        }
+        // au final
+        if($error_upload===''){
+            move_uploaded_file($_FILES['fileUpload']['tmp_name'],WEB_PUBLIC."uploads".DIRECTORY_SEPARATOR.$_FILES['fileUpload']['tmp_name']);
+        }
+    }else{
+        // problème de chargement
+        $error_upload="problème de chargement";
+    }    
+}

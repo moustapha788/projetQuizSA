@@ -52,7 +52,13 @@
     clip-path: circle(50% at 50% 50%);
 }
 
-.choose-avatar img {
+.error-of-upload-file {
+    margin: 10% 0;
+    padding: 1em;
+    color: red;
+}
+
+#new-image {
     clip-path: circle(50% at 50% 50%);
     width: 100%;
     height: 100%;
