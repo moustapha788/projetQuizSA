@@ -58,8 +58,6 @@ function isValidPassword(password) {
 }
 
 
-
-
 //Even listeners--------------------------------------------------------
 formCon.addEventListener('submit', function(e) {
     //Blocage de la soumission du formulaire

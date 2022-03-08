@@ -4,6 +4,7 @@ if(isset($_SESSION[KEY_ERRORS])){
     $errors=$_SESSION[KEY_ERRORS];
     unset($_SESSION[KEY_ERRORS]);
 }
+
 ?>
 <section class="content-form">
     <form class="connexion-form" id="connexion-form" action="<?= WEB_ROOT ?>" method="POST">
@@ -20,7 +21,7 @@ if(isset($_SESSION[KEY_ERRORS])){
 
             <!--//!login -->
             <div class="forms-group">
-                <input class="input-connexion" type="text"  name="login" id="login" autofocus class="login" placeholder="Login">
+                <input class="input-connexion" type="text"  name="login" id="login" autofocus class="login" value="<?php if (!isset($errors['login']) && isset($_SESSION['POST'])) echo $post['login']; ?>" placeholder="Login">
                 <small class="ic-connexion"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-login.png"?>" alt=""></small>
             </div>
             <p class="ERROR-LAY"></p>

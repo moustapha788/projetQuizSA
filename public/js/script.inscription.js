@@ -6,50 +6,27 @@ const password1 = document.getElementById('password1');
 const password2 = document.getElementById('password2');
 
 //todo Functions-------------------------------------------------------------
+// ! showErrorReg
 function showErrorReg(input, message) { //Afficher les messages d'erreur
     const formControlReg = input.parentElement;
     formControlReg.className = 'forms-group-inscrip  error';
     const small = formControlReg.querySelector('small');
     small.innerText = message;
 }
-// !
+// ! showSuccessReg
 function showSuccessReg(input) {
     const formControlReg = input.parentElement;
     formControlReg.className = 'forms-group-inscrip  success';
 }
-// !
-function checkEmailReg(input) { //Tester si l'email est valide :  javascript : valid email
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (re.test(input.value.trim().toLowerCase())) {
-        showSuccessReg(input);
-    } else {
-        showErrorReg(input, "L'email est invalide!");
-    }
-}
-// !
-function checkRequired(inputArray) { // Tester si les champs ne sont pas vides
-    inputArray.forEach(input => {
-        if (input.value === '') {
-            showErrorReg(input, `${getFieldNameReg(input)} est obligatoire`);
-        } else {
-            showSuccessReg(input);
-        }
-    });
-}
 
-// !
+// ! getFieldNameReg
 function getFieldNameReg(input) {
     //Retour le nom de chaque input en se basant sur son id
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-// ! 
-function checkPasswordMatch(input1, input2) {
-    if (input1.value !== input2.value) {
-        showErrorReg(input2, 'Les mots de passe ne correspondent pas !');
-    }
-}
+
 // !
 function isValidEmail(email) {
     //Tester si l'email est valide
@@ -58,20 +35,44 @@ function isValidEmail(email) {
 }
 
 // todo Even listeners--------------------------------------------------------
-window.addEventListener('load', () => {
+/* window.addEventListener('load', () => {
     const theinput = document.querySelectorAll(".control-group-inscription input");
     theinput.forEach(input => {
         input.value = '';
     });
-})
+}) */
 formReg.addEventListener('submit', function(e) {
     e.preventDefault(); //Bloquer la soumission du formulaire
     // ! compte le nombre d'rreurs
     var cptErrors = 0;
 
+    // ! checkRequired
+    function checkRequired(inputArray) { // Tester si les champs ne sont pas vides
+        inputArray.forEach(input => {
+            if (input.value === '') {
+                showErrorReg(input, `${getFieldNameReg(input)} est obligatoire`);
+                cptErrors++;
+            } else {
+                showSuccessReg(input);
+            }
+        });
+    }
+    // ! checkEmailReg
+    function checkEmailReg(input) { //Tester si l'email est valide :  javascript : valid email
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (re.test(input.value.trim().toLowerCase())) {
+            showSuccessReg(input);
+        } else {
+            showErrorReg(input, "L'email est invalide!");
+            cptErrors++;
+        }
+    }
+
+
     checkRequired([prenom, nom, email, password1, password2]);
     checkEmailReg(email);
-    // !
+    // ! isValidPasswordReg
     function isValidPasswordReg(password) {
         motif = password.value.trim();
         re = /^(?=.*\d).{6,}$/;
@@ -88,7 +89,7 @@ formReg.addEventListener('submit', function(e) {
             showSuccessReg(password);
         }
     }
-    // !
+    // ! vérifierLongueurEtFormat
     function vérifierLongueurEtFormat(input, min, max, cptErrors) {
         if (input.value === '') {
             showErrorReg(input, `Le ${getFieldNameReg(input)} est obligatoire!`);
@@ -104,6 +105,13 @@ formReg.addEventListener('submit', function(e) {
             }
         }
     }
+    // !fonction checkPasswordMatch
+    function checkPasswordMatch(input1, input2) {
+        if (input1.value !== input2.value) {
+            showErrorReg(input2, 'Passwords do not match!');
+            cptErrors++;
+        }
+    }
     // ! Prenom
     vérifierLongueurEtFormat(prenom, 3, 15, cptErrors);
     // ! Nom
@@ -112,6 +120,9 @@ formReg.addEventListener('submit', function(e) {
     isValidPasswordReg(password1);
     // ! Password 2
     isValidPasswordReg(password2);
+    // ! confirmité des 2 mots de passe
+    checkPasswordMatch(password1, password2);
+
     // ! Email
     if (email.value === '') {
         showErrorReg(email, "L'email est obligatoire!");
@@ -125,7 +136,7 @@ formReg.addEventListener('submit', function(e) {
         showSuccessReg(email);
     }
 
-    // ! SOUMISSION DU FORMULAIRE SI PAS D'ERREUR
+    // ! SOUMISSION DU FORMULAIRE SI PAS D'ERREUR ( toutes les 9 erreurs n'existe plus);
     if (cptErrors === 0) {
         e.target.submit();
     }
@@ -164,4 +175,7 @@ function getImage() {
         })
         getImage();
     }
+    btnUpload.style.backgroundColor = "var(--success-color)";
+    btnUpload.innerText = "fichier chargé avec succés";
+
 }

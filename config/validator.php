@@ -37,14 +37,12 @@ function valid_password(string $key,string $data,array &$errors,string $message=
     }
 }
 
-
-function is_matched_password($password1,$password2):bool{
-    return $password1===$password2;
-
+function mathced_required(string $password1,string $password2,array &$errors,string $key,string $message):void{
+    if(is_matched_password($password1,$password2,)){
+        $errors[$key]=$message;
+    }
 }
 
-
-function is_valid_inscription(){
-    
-    
+function is_matched_password(string $password1,string $password2,):bool{
+    return $password1===$password2;
 }

@@ -31,6 +31,17 @@ function find_users_by_role(string $role):array{
     return $result;
 }
 /* 
+! trouver l'avatar d'un utilisateur
+ */
+function find_avatar_user(array $key_user_connected):string{
+    if($key_user_connected['avatar']===''){
+        return "generatedPhotos";
+    }else{
+        return $key_user_connected['avatar'];
+    }
+}
+
+/* 
 ! Rechercher si un utilisateur est déjà inscrit
  */
 function is_user_in_file(array $infos_of_new_user):bool{

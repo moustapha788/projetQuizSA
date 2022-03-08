@@ -16,3 +16,23 @@
 .bienvenue-admin h1 {
     font-size: 3em;
 }
+
+.bienvenue-joueur p {
+    font-size: 2em;
+}
+
+.welcome {
+    width: 10em;
+    height: 2em;
+    border-radius: 0.5em;
+    background-color: var(--color-of-aqua);
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+
+.welcome:hover {
+    background-color: var(--color-of-orange);
+}

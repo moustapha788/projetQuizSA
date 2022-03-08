@@ -15,7 +15,6 @@
                     <td><?=$joueur['nom']?></td>
                     <td><?=$joueur['prenom']?></td>
                     <td><?=$joueur['score']." pts"?></td>
-                    
                 </tr>
             <?php $i++; 
                 if($i%10==0){break;} 

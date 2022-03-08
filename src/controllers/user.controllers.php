@@ -84,7 +84,7 @@ function presenter_jeu(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
 }
 
-// !fonction presenter la vue lister questions sur le tableau de bord de l'admin
+// !fonction presenter la vue lister questions
 function presenter_vue_l_questions(string $view,string $the_controller):void{
     ob_start();
     // $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
@@ -93,7 +93,7 @@ function presenter_vue_l_questions(string $view,string $the_controller):void{
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }
-// !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
+// !fonction presenter la vue lister joueurs
 function presenter_vue_l_joueurs(string $view,string $the_controller):void{
     ob_start();
     $tab_joueurs = find_users_by_role(ROLE_JOUEUR);
@@ -102,7 +102,7 @@ function presenter_vue_l_joueurs(string $view,string $the_controller):void{
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }
-// !fonction presenter la vue lister questions sur le tableau de bord de l'admin: vue par défaut
+// !fonction presenter la vue lister 
 function presenter_vue(string $view,string $the_controller):void{
     ob_start();
     require_once(PATH_VIEWS.$the_controller.DIRECTORY_SEPARATOR.$view);

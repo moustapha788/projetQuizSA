@@ -1,1 +1,21 @@
-{"users":[{"nom":"Gaye","prenom":"Moustapha","login":"admin@gmail.com","password":"admin123","role":"ROLE_ADMIN","score":0},{"nom":"Gaye","prenom":"Moustapha","login":"joueur@gmail.com","password":"joueur123","role":"ROLE_JOUEUR","score":0},{"nom":"Diallo","prenom":"Souleymana","login":"souleymane@gmail.com","password":"diallo123","role":"ROLE_JOUEUR","score":0},{"nom":"gaye","prenom":"moustapha","login":"gaye@gmail.com","password":"gaye123","role":"ROLE_ADMIN","score":0},{"nom":"sene","prenom":"adama","login":"seneadama@gmail.com","password":"adama123","role":"ROLE_JOUEUR","score":0},{"nom":"gaye","prenom":"moustapha","login":"admin@gmail.com","password":"gaye123","role":"ROLE_JOUEUR","score":0},{"nom":"gaye","prenom":"moustapha","login":"admin@gmail.com","password":"gaye123","role":"ROLE_JOUEUR","score":0},{"nom":"gaye","prenom":"moustapha","login":"admin@gmail.com","password":"gaye123","role":"ROLE_JOUEUR","score":0},{"nom":"qccsc","prenom":"fddvsc","login":"admin@gmail.comdsdzd","password":"dsdscsdc1dzdzs","role":"ROLE_JOUEUR","score":0},{"nom":"","prenom":"","login":"","password":"","role":"ROLE_JOUEUR","score":0}]}
+{
+    "users": [{
+            "nom": "Gaye",
+            "prenom": "Moustapha",
+            "login": "admin@gmail.com",
+            "password": "admin123",
+            "role": "ROLE_ADMIN",
+            "score": 0,
+            "avatar": ""
+        },
+        {
+            "nom": "Gaye",
+            "prenom": "Moustapha",
+            "login": "joueur@gmail.com",
+            "password": "joueur123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": ""
+        }
+    ]
+}

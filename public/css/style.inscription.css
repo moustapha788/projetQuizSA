@@ -178,6 +178,7 @@ input[type="file"] {
 
 .forms-group-inscrip small {
     visibility: hidden;
+    color: var(--error-color);
 }
 
 .forms-group-inscrip.error small {
