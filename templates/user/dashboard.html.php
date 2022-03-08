@@ -15,7 +15,7 @@
         <div class="dashboard-menu" id="dashboard-menu">
             <!-- //? profile of admin -->
             <div class="profile-admin" id="profile-admin">
-                <a  href="<?=WEB_ROOT?>"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."avatar".DIRECTORY_SEPARATOR."generatedPhotos"?>" alt="avatar admin" ></a>
+                <a  href="<?=""?>"><img src="<?=WEB_PHOTOS.uploadPhotoUser('avatar')?>" alt="avatar admin" ></a>
             </div>
             
             <!-- //? profile of admin -->

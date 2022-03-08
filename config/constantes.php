@@ -37,9 +37,14 @@ define("PATH_DB",ROOT."data".DIRECTORY_SEPARATOR."db.json");
 define("WEB_ROOT","http://localhost/projetQuizSA/public/");
 
 /* 
-? URL pour chrager les  images et les fichiers css
+? URL pour charger les  images et les fichiers css
 */
 define("WEB_PUBLIC",str_replace("index.php","",$_SERVER["SCRIPT_NAME"]));
+/* 
+? URL pour charger les  images uploadés pour les phots de profil
+*/
+define("WEB_PHOTOS",WEB_PUBLIC."uploads".DIRECTORY_SEPARATOR);
+
 /* 
 ? Clé d'erreurs
 */

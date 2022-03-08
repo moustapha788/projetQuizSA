@@ -42,7 +42,7 @@ function isValidEmail(login) {
     return re.test(String(login).toLowerCase());
 }
 
-// !fonction isValidEmail
+// !fonction isValidPassword
 function isValidPassword(password) {
     validity = false;
     if (password.value.trim().length < 6) {

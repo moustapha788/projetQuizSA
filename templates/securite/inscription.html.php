@@ -12,17 +12,20 @@ if(isset($_SESSION[KEY_ERRORS])){
         <!-- // ! libele -->
         <div class="libele-form-register">
             <h2>S'inscrire</h2>
-            <small>Pour proposer des quizz</small>
+            <?php /* player */ if(!is_connect()): ?>
+                <small>Pour Tester votre niveau de culture générale</small>
+            <?php endif; ?>
+            <?php /* admin */ if(is_admin()): ?>
+                <small>Pour proposer des quizz</small>
+            <?php endif; ?>
         </div>
+        
         <!-- // ! the form -->
         <form class="connexion-form-inscrip" id="connexion-form-inscrip" novalidate action="<?= WEB_ROOT?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="controller" value="securite">
             <input type="hidden" name="action" value="inscription">
 
             <div class="control-group-inscription">
-                <p class=" RED-ERROR">
-                    <?php if (isset($errors['already_log_in'])){echo $errors['already_log_in'];}?>
-                </p>
 
 
                 <!--//! prenom -->
@@ -55,6 +58,7 @@ if(isset($_SESSION[KEY_ERRORS])){
                     <small class="the_error_small"></small>
                     <p class="the_error_small RED-ERROR">
                         <?php if (isset($errors['loginReg'])){echo $errors['loginReg'];}?>
+                        <?php if (isset($errors['already_log_in'])){echo $errors['already_log_in'];}?>
                     </p>
                 </div>
 
@@ -105,15 +109,15 @@ if(isset($_SESSION[KEY_ERRORS])){
     <div class="choose-avatar" id="choose-avatar">
         <figure>
             <!-- image uploadé par défaut -->
-            <img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."avatar".DIRECTORY_SEPARATOR."generatedPhotos" ?>" id="new-image" alt="" srcset="">
+            <img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."avatar".DIRECTORY_SEPARATOR."generatedPhotos.png" ?>" id="new-image" alt="" srcset="">
         </figure>
         
-        <?php  if(isset($errors)):?>
-            <p class="error-of-upload-file">
-                <?php if (isset($errors['upload'])){ echo $errors['upload'];}?>
+
+        <?php /* php */ if(isset($errors)):?>
+            <p class="error-of-upload-file RED-ERROR text-center">
+                <?php if (isset($errors['upload'])){ echo $errors['upload'];} ?>
             </p>
-        <?php endif; ?>
+        <?php endif; if(isset($errors))echo count($errors)?>
+        <!-- <p class="" id="upload-file">  bbb</p> --> 
     </div>
-
-
 </section>

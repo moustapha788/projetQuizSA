@@ -18,7 +18,17 @@ function showSuccessReg(input) {
     const formControlReg = input.parentElement;
     formControlReg.className = 'forms-group-inscrip  success';
 }
-
+// ! showErrorFile
+function showErrorFile(input, $message) {
+    const uploadFile = document.getElementById(input);
+    uploadFile.className = 'error-of-upload-file RED-ERROR';
+    uploadFile.innerText = $message;
+}
+// ! showSuccessFile
+function showSuccessFile(input) {
+    const uploadFile = document.getElementById(input);
+    uploadFile.addClass = 'invisible';
+}
 
 // ! getFieldNameReg
 function getFieldNameReg(input) {
@@ -35,12 +45,12 @@ function isValidEmail(email) {
 }
 
 // todo Even listeners--------------------------------------------------------
-/* window.addEventListener('load', () => {
+window.addEventListener('load', () => {
     const theinput = document.querySelectorAll(".control-group-inscription input");
     theinput.forEach(input => {
         input.value = '';
     });
-}) */
+});
 formReg.addEventListener('submit', function(e) {
     e.preventDefault(); //Bloquer la soumission du formulaire
     // ! compte le nombre d'rreurs
@@ -108,8 +118,17 @@ formReg.addEventListener('submit', function(e) {
     // !fonction checkPasswordMatch
     function checkPasswordMatch(input1, input2) {
         if (input1.value !== input2.value) {
-            showErrorReg(input2, 'Passwords do not match!');
+            showErrorReg(input2, 'Les mots de passe ne correspondent pas!');
             cptErrors++;
+        }
+    }
+    // ! checkChooseFile
+    function checkChooseFile(input) {
+        if (input.value === '') {
+            showErrorFile(input, "Aucun photo chargé,voulez-vous celui là par défaut");
+            cptErrors++;
+        } else {
+            showSuccessFile(input);
         }
     }
     // ! Prenom
@@ -122,6 +141,8 @@ formReg.addEventListener('submit', function(e) {
     isValidPasswordReg(password2);
     // ! confirmité des 2 mots de passe
     checkPasswordMatch(password1, password2);
+    // ! choix avatar
+    checkChooseFile(fileUpload);
 
     // ! Email
     if (email.value === '') {
@@ -135,12 +156,13 @@ formReg.addEventListener('submit', function(e) {
     } else {
         showSuccessReg(email);
     }
-
+    console.log(cptErrors);
     // ! SOUMISSION DU FORMULAIRE SI PAS D'ERREUR ( toutes les 9 erreurs n'existe plus);
     if (cptErrors === 0) {
         e.target.submit();
     }
 });
+
 
 
 /*********************
@@ -152,6 +174,7 @@ const fileUpload = document.getElementById('fileUpload');
 const chooseAvatar = document.querySelector('.choose-avatar figure');
 const btnUpload = document.getElementById('btn-upload');
 const labelConnexion = document.getElementById("label-connexion");
+// const l;
 btnUpload.addEventListener('click', () => {
     fileUpload.click();
     fileUpload.addEventListener("change", getImage, false);

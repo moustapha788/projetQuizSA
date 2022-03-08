@@ -173,7 +173,7 @@ function presentation_inscription(){
 }
 
 
-// !fff
+// ! function pour collecter les infos de l'utilisateur
 function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR):array{
     $infos_new_user=[];
     $infos_new_user["nom"]=nettoyer_chaine($_POST['nom']);
@@ -196,10 +196,11 @@ function register_user(array $infos_new_user):void{
     champ_obligatoire( 'loginReg', $infos_new_user['login'], $errors, 'Login obligatoire' );
     champ_obligatoire( 'password1', $infos_new_user['password1'], $errors, 'password1 obligatoire' );
     champ_obligatoire( 'password2', $infos_new_user['password2'], $errors, 'password2 obligatoire' );
+    valid_password('password1',$infos_new_user['password1'],$errors);
+    mathced_required($infos_new_user['password1'],$infos_new_user['password2'],$errors,"password2","les 2 mots de passe  ne sont pas confondues");
     if(is_user_in_file($infos_new_user)){
         $errors['already_log_in']="Cet utilisateur existe déjà.Choissisez un autre login";
     }
-    // mathced_required($infos_new_user['password1'],$infos_new_user['password2'],$errors,"password1","les 2 mots de passe  ne sont pas c");
     
     // !
     if ( !isset( $errors[ 'loginReg' ] ) ) {
@@ -225,16 +226,6 @@ function register_user(array $infos_new_user):void{
     }
 
 
-    if(isset($errors['already_log_in'])){
-        if ( !is_connect()) {
-            header( 'location:'.WEB_ROOT.'?controller=securite&action=inscription' );
-            exit();
-        }
-        if ( is_admin() ) {
-            header( 'location:'.WEB_ROOT.'?controller=user&action=dashboard' );
-            exit();
-        }
-    }
     if(count($errors)===0){
         if ( !is_connect() ) {
             collectInfos( $infos_new_user );

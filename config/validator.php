@@ -26,23 +26,30 @@ function nettoyer_chaine(string &$chaine):string{
 
 
 // ! fonction valid_password
-function valid_password(string $key,string $data,array &$errors,string $message="password invalid"){
+function valid_password(string $key,string $data,array &$errors,string $message="entrer un mot de passe valide"){
     if(empty($data)){
-        $errors[$key]='entrez mot de passe';
+        $errors[$key]=$message;
     }else{
-        $nettoie=nettoyer_chaine($data);
-        if(strlen($nettoie)<=17){
-            
+        if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z]{6,}$/', $data)){
+            $errors[$key]='format invalide';
         }
     }
 }
 
 function mathced_required(string $password1,string $password2,array &$errors,string $key,string $message):void{
-    if(is_matched_password($password1,$password2,)){
+    if(!is_matched_password($password1,$password2,)){
         $errors[$key]=$message;
     }
 }
 
 function is_matched_password(string $password1,string $password2,):bool{
     return $password1===$password2;
+}
+
+function uploadPhotoUser(string $avatar){
+    if($_SESSION[KEY_USER_CONNECT][$avatar]===''){
+        return 'generatedPhotos.png';
+    }else{
+        return $_SESSION[KEY_USER_CONNECT][$avatar];
+    }
 }

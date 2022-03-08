@@ -53,9 +53,15 @@
 }
 
 .error-of-upload-file {
+    /* pos */
     margin: 10% 0;
     padding: 1em;
     color: red;
+}
+
+#upload-file {
+    margin: 10% 0;
+    padding: 1em;
 }
 
 #new-image {
