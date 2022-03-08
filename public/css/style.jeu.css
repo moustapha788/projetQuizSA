@@ -1,0 +1,9 @@
+.game {
+    font-size: 2em;
+    margin: 10% auto;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

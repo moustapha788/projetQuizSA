@@ -34,5 +34,31 @@ define("PATH_DB",ROOT."data".DIRECTORY_SEPARATOR."db.json");
 /*
 ? Chemin sur le dossier public , pour inclusion des images,css et js
 */
-define("WEBROOT","http://localhost/projetQuizSA/public/index.php");
+define("WEB_ROOT","http://localhost/projetQuizSA/public/");
 
+/* 
+? URL pour charger les  images et les fichiers css
+*/
+define("WEB_PUBLIC",str_replace("index.php","",$_SERVER["SCRIPT_NAME"]));
+/* 
+? URL pour charger les  images uploadés pour les phots de profil
+*/
+define("WEB_PHOTOS",WEB_PUBLIC."uploads".DIRECTORY_SEPARATOR);
+
+/* 
+? Clé d'erreurs
+*/
+define("KEY_ERRORS","errors");
+
+/* 
+? Clé d'utilisateur connecté
+*/
+define("KEY_USER_CONNECT","user-connect");
+/* 
+? Clé d'utilisateur joueur
+*/
+define('ROLE_JOUEUR','ROLE_JOUEUR');
+/* 
+? Clé d'utilisateur admin
+*/
+define('ROLE_ADMIN','ROLE_ADMIN');

@@ -2,42 +2,20 @@
     "users": [{
             "nom": "Gaye",
             "prenom": "Moustapha",
-            "age": 23,
             "login": "admin@gmail.com",
-            "password": "admin",
+            "password": "admin123",
             "role": "ROLE_ADMIN",
-            "score": 0
+            "score": 0,
+            "avatar": ""
         },
         {
             "nom": "Gaye",
             "prenom": "Moustapha",
-            "age": 23,
             "login": "joueur@gmail.com",
-            "password": "joueur",
+            "password": "joueur123",
             "role": "ROLE_JOUEUR",
-            "score": 0
+            "score": 0,
+            "avatar": ""
         }
-    ],
-
-    "questions": [{
-        "libele": "Quel est la capitale du Sénégal",
-        "nombreDePoints": 5,
-        "type": "qcm",
-        "reponse": [{
-            "rep1": "Dakar",
-            "rep2": "",
-            "rep3": ""
-        }]
-
-    }, {
-        "libele": "Quel est la capitale du Sénégal",
-        "nombreDePoints": 5,
-        "type": "qcm",
-        "reponse": [{
-            "rep1": "Dakar",
-            "rep2": "",
-            "rep3": ""
-        }]
-
-    }]
+    ]
 }

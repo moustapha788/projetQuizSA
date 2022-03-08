@@ -1,0 +1,193 @@
+.content-register {
+    width: 85%;
+    height: 95%;
+    margin: 1% auto;
+    display: flex;
+    background-color: #fff;
+    border-radius: 2%;
+    color: var(--color-of-gray);
+    box-shadow: 2px 2px 12px 4px rgba(0, 0, 0, 0.6);
+}
+
+.check-info {
+    width: 60%;
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.libele-form-register {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.342);
+}
+
+.libele-form-register h2 {
+    font-size: 2em;
+    color: #222222;
+}
+
+.libele-form-register small {
+    font-size: 0.85em;
+}
+
+.choose-avatar {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.choose-avatar figure {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid var(--color-of-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.error-of-upload-file {
+    /* pos */
+    margin: 10% 0;
+    padding: 1em;
+    color: red;
+}
+
+#upload-file {
+    margin: 10% 0;
+    padding: 1em;
+}
+
+#new-image {
+    clip-path: circle(50% at 50% 50%);
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 
+!!!!!
+
+
+
+!!!!!*/
+
+.forms-group-inscrip,
+.control-group-inscription,
+.connexion-form-inscrip {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.choose-file {
+    display: flex;
+    flex-direction: row!important;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.label-connexion {
+    margin: 1%;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+input[type="text"].input-register,
+input[type="email"].input-register,
+input[type="password"].input-register {
+    height: 40px;
+    width: 100%;
+    font-size: 1.5em;
+    text-indent: 5%;
+    border-radius: 5px;
+    border: 2px solid var(--color-of-gray);
+}
+
+
+/* ! input de type file */
+
+input[type="file"] {
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: -15000px;
+    visibility: hidden;
+}
+
+#register {
+    margin-top: 1%;
+    background-color: var(--color-of-blue);
+    border: none;
+    font-size: 1.2em;
+    padding: 2% 3%;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-upload {
+    margin-top: 1%;
+    background-color: var(--color-of-blue);
+    border: none;
+    font-size: 1.3em;
+    padding: 2% 3%;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.forms-group-inscrip:hover .label-connexion {
+    color: var(--color-of-blue);
+    font-weight: bold;
+}
+
+.the_error_small {
+    position: absolute;
+    right: 0;
+    top: 15%;
+    font-size: 1.2em;
+}
+
+
+/* ================== */
+
+.forms-group-inscrip input:focus {
+    outline: 0;
+}
+
+.forms-group-inscrip.success input {
+    border-color: var(--success-color);
+}
+
+.forms-group-inscrip.error input {
+    border-color: var(--error-color);
+    animation: clignoterIns 0.5s alternate infinite;
+}
+
+@keyframes clignoterIns {
+    from {
+        border-color: #fff;
+        background-color: #fff;
+    }
+    to {
+        border-color: #f00;
+    }
+}
+
+.forms-group-inscrip small {
+    visibility: hidden;
+    color: var(--error-color);
+}
+
+.forms-group-inscrip.error small {
+    visibility: visible;
+    color: var(--error-color);
+}

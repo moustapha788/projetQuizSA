@@ -1,0 +1,146 @@
+/***
+*! connexion-form
+***/
+
+.content-form {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.connexion-form {
+    width: 45vw;
+    height: 65vh;
+    background-color: #fff;
+    padding: 0;
+}
+
+.libele-form-connect {
+    padding: 5%;
+    background-color: var(--color-of-blue);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+
+.control-group-connect {
+    height: 90%;
+    padding: 3% 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.forms-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-of-gray);
+    border: 1pt solid var(--color-of-gray);
+    background-color: var(--color-of-whitesmoke);
+    margin: 2.5%;
+    height: 90px;
+}
+
+.forms-group.error {
+    visibility: visible;
+}
+
+.forms-group.error {
+    border: 2px solid var(--error-color);
+    animation: clignoterCon 0.5s alternate infinite;
+}
+
+@keyframes clignoterCon {
+    from {
+        border-color: #fff;
+        background-color: #fff;
+    }
+    to {
+        border-color: #f00;
+        background-color: #f00;
+    }
+}
+
+.forms-group.success {
+    border: 2px solid var(--success-color);
+}
+
+.ic-connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4%;
+}
+
+.ic-connexion img {
+    width: 50px;
+    height: 50px;
+}
+
+.input-connexion {
+    background-color: var(--color-of-whitesmoke);
+    border: none;
+    border-left: 1px solid var(--color-of-gray);
+    outline: none;
+    text-indent: 5%;
+    width: 98%;
+    height: 100%;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-of-gray);
+    margin: 1% 0;
+}
+
+.input-connexion:focus::placeholder {
+    text-align: right;
+    color: var(--color-of-blue);
+}
+
+.last-control {
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    color: var(--color-of-gray);
+    font-size: 2em;
+}
+
+.last-control #connect {
+    width: 250px;
+    height: 80px;
+    margin-right: 20px;
+    padding: 1% 5%;
+    background-color: var(--color-of-blue);
+    color: #fff;
+    font-SIZE: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.last-control #connect:hover {
+    background-color: green;
+}
+
+.last-control #connect:active {
+    background-color: var(--color-of-orange);
+}
+
+.last-control a {
+    color: var(--color-of-gray);
+    display: flex;
+}
+
+.last-control a:hover {
+    color: var(--color-of-orange);
+}
+
+.ERROR-LAY {
+    text-align: center;
+    font-size: 1.2em;
+    /* visibility: hidden; */
+}
