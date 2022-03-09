@@ -21,7 +21,6 @@
 .table-joueurs table {
     overflow: hidden;
     text-align: left;
-    /* background-color: red; */
     margin: 0 2%;
 }
 
@@ -31,7 +30,6 @@
 
 .table-joueurs table td {
     font-size: 2em;
-    font-weight: thin;
     font-family: 'Times New Roman', Times, serif;
 }
 

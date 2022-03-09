@@ -113,11 +113,13 @@ if(isset($_SESSION[KEY_ERRORS])){
         </figure>
         
 
-        <?php /* php */ if(isset($errors)):?>
+        <?php /* erreur de chargement php */ if(isset($errors)):?>
             <p class="error-of-upload-file RED-ERROR text-center">
                 <?php if (isset($errors['upload'])){ echo $errors['upload'];} ?>
             </p>
-        <?php endif; if(isset($errors))echo count($errors)?>
-        <!-- <p class="" id="upload-file">  bbb</p> --> 
+        <?php endif;?>
+
+        <!-- erreur de chargement js -->
+        <p class="" id="upload-file"></p> 
     </div>
 </section>

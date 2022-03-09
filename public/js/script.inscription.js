@@ -4,7 +4,7 @@ const prenom = document.getElementById('prenom');
 const email = document.getElementById('email');
 const password1 = document.getElementById('password1');
 const password2 = document.getElementById('password2');
-
+const elmPFileError = document.getElementById("upload-file");
 //todo Functions-------------------------------------------------------------
 // ! showErrorReg
 function showErrorReg(input, message) { //Afficher les messages d'erreur
@@ -19,15 +19,13 @@ function showSuccessReg(input) {
     formControlReg.className = 'forms-group-inscrip  success';
 }
 // ! showErrorFile
-function showErrorFile(input, $message) {
-    const uploadFile = document.getElementById(input);
-    uploadFile.className = 'error-of-upload-file RED-ERROR';
-    uploadFile.innerText = $message;
+function showErrorFile($message) {
+    elmPFileError.className = 'error-of-upload-file text-center RED-ERROR';
+    elmPFileError.innerText = $message;
 }
 // ! showSuccessFile
-function showSuccessFile(input) {
-    const uploadFile = document.getElementById(input);
-    uploadFile.addClass = 'invisible';
+function showSuccessFile() {
+    elmPFileError.className = 'invisible';
 }
 
 // ! getFieldNameReg
@@ -123,12 +121,12 @@ formReg.addEventListener('submit', function(e) {
         }
     }
     // ! checkChooseFile
-    function checkChooseFile(input) {
-        if (input.value === '') {
-            showErrorFile(input, "Aucun photo chargé,voulez-vous celui là par défaut");
+    function checkChooseFile(fileUpload) {
+        if (fileUpload.value === '') {
+            showErrorFile("Aucun photo chargé,veillez choisir un fichier de format .png, .jpeg, .jpg");
             cptErrors++;
         } else {
-            showSuccessFile(input);
+            showSuccessFile();
         }
     }
     // ! Prenom
@@ -157,6 +155,9 @@ formReg.addEventListener('submit', function(e) {
         showSuccessReg(email);
     }
     console.log(cptErrors);
+    console.log(fileUpload.value);
+    console.log(fileUpload);
+    console.log(elmPFileError);
     // ! SOUMISSION DU FORMULAIRE SI PAS D'ERREUR ( toutes les 9 erreurs n'existe plus);
     if (cptErrors === 0) {
         e.target.submit();
