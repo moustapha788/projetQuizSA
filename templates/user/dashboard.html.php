@@ -15,7 +15,13 @@
         <div class="dashboard-menu" id="dashboard-menu">
             <!-- //? profile of admin -->
             <div class="profile-admin" id="profile-admin">
-                <a  href="<?=""?>"><img src="<?=WEB_PHOTOS.uploadPhotoUser('avatar')?>" alt="avatar admin" ></a>
+                <!-- photo profile -->
+                <a  href="<?=""?>"><img src="<?=WEB_PHOTOS.upload_photo_user('avatar')?>" alt="avatar admin" ></a>
+                <!-- nom et prénom admin -->
+                <h1>
+                    <small><?= get_last_name_admin('prenom')?></small>
+                    <small><?= get_first_name_admin('nom')?></small>
+                </h1>
             </div>
             
             <!-- //? profile of admin -->

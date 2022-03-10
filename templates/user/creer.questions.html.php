@@ -28,7 +28,7 @@
                     <option value="multiple">choix multiple</option>
                     <option value="texte">texte</option>
                 </select>
-                <p class="btn-add" id="btn-add"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-supprimer.png"?>" alt="ajouter" srcset=""></p>
+                <p class="btn-add" id="btn-add"><img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="ajouter" srcset=""></p>
             </div>
 
             <!-- Réponse -->

@@ -109,7 +109,7 @@ if(isset($_SESSION[KEY_ERRORS])){
     <div class="choose-avatar" id="choose-avatar">
         <figure>
             <!-- image uploadé par défaut -->
-            <img src="<?=WEB_PUBLIC."img".DIRECTORY_SEPARATOR."avatar".DIRECTORY_SEPARATOR."generatedPhotos.png" ?>" id="new-image" alt="" srcset="">
+            <small >Veilllez choisir un avatar</small>
         </figure>
         
 

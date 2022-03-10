@@ -184,6 +184,10 @@ labelConnexion.addEventListener('click', () => {
     fileUpload.click();
     fileUpload.addEventListener("change", getImage, false);
 });
+chooseAvatar.addEventListener('click', () => {
+    fileUpload.click();
+    fileUpload.addEventListener("change", getImage, false);
+});
 
 function getImage() {
     if (chooseAvatar.children.length === 0) {
@@ -193,7 +197,7 @@ function getImage() {
         newImg.id = "new-image";
         chooseAvatar.appendChild(newImg);
     } else {
-        const theElements = document.querySelectorAll('#choose-avatar img');
+        const theElements = document.querySelectorAll('#choose-avatar img,#choose-avatar small');
         theElements.forEach(elt => {
             chooseAvatar.removeChild(elt);
         })
@@ -201,5 +205,4 @@ function getImage() {
     }
     btnUpload.style.backgroundColor = "var(--success-color)";
     btnUpload.innerText = "fichier chargé avec succés";
-
 }

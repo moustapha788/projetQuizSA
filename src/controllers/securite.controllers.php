@@ -174,15 +174,15 @@ function presentation_inscription(){
 
 
 // ! function pour collecter les infos de l'utilisateur
-function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR):array{
+function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR,int $score=15):array{
     $infos_new_user=[];
     $infos_new_user["nom"]=nettoyer_chaine($_POST['nom']);
     $infos_new_user["prenom"]=nettoyer_chaine($_POST['prenom']);
     $infos_new_user["login"]=nettoyer_chaine($_POST['login']);
-    $infos_new_user["password1"]=nettoyer_chaine($_POST['password1']);
+    $infos_new_user["password"]=nettoyer_chaine($_POST['password1']);
     $infos_new_user["password2"]=nettoyer_chaine($_POST['password2']);
     $infos_new_user["role"]=$role;
-    $infos_new_user["score"]=0;
+    $infos_new_user["score"]=$score;
     $infos_new_user["avatar"]=(!empty($_FILES['fileUpload']['name']))? $_FILES['fileUpload']["name"]:'default_avatar';
     return $infos_new_user;
 }
@@ -194,17 +194,14 @@ function register_user(array $infos_new_user):void{
     champ_obligatoire( 'nom', $infos_new_user['nom'], $errors, 'Nom obligatoire' );
     champ_obligatoire( 'prenom', $infos_new_user['prenom'], $errors, 'Prénom obligatoire' );
     champ_obligatoire( 'loginReg', $infos_new_user['login'], $errors, 'Login obligatoire' );
-    champ_obligatoire( 'password1', $infos_new_user['password1'], $errors, 'password1 obligatoire' );
+    champ_obligatoire( 'password1', $infos_new_user['password'], $errors, 'password1 obligatoire' );
     champ_obligatoire( 'password2', $infos_new_user['password2'], $errors, 'password2 obligatoire' );
-    valid_password('password1',$infos_new_user['password1'],$errors);
-    mathced_required($infos_new_user['password1'],$infos_new_user['password2'],$errors,"password2","les 2 mots de passe  ne sont pas confondues");
+    valid_password('password1',$infos_new_user['password'],$errors);
+    valid_password('password2',$infos_new_user['password2'],$errors);
+    matched_passwords_required($infos_new_user['password'],$infos_new_user['password2'],$errors,"password2","les 2 mots de passe  ne sont pas confondues");
+    valid_email( 'loginReg', $infos_new_user['login'], $errors );
     if(is_user_in_file($infos_new_user)){
         $errors['already_log_in']="Cet utilisateur existe déjà.Choissisez un autre login";
-    }
-    
-    // !
-    if ( !isset( $errors[ 'loginReg' ] ) ) {
-        valid_email( 'loginReg', $infos_new_user['login'], $errors );
     }
 
     // ! uploading files
@@ -232,12 +229,11 @@ function register_user(array $infos_new_user):void{
             presenter_vue_bienvenue_nouveau_JOUEUR( $infos_new_user );
         }
         if ( is_admin() ) {
-            collectInfos( $infos_new_user, ROLE_ADMIN );
+            collectInfos( $infos_new_user, ROLE_ADMIN,0 );
             presenter_vue_bienvenue_nouveau_ADMIN( $infos_new_user );
         }
-        $infos_to_save=$infos_new_user;
         unset($infos_new_user['password2']);
-        $dataJson = array_to_json( $infos_to_save, 'users' );
+        $dataJson = array_to_json( $infos_new_user, 'users' );
         file_put_contents( PATH_DB, $dataJson );
     }else{
         // erreur de registration
