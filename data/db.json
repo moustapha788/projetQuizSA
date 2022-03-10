@@ -22,7 +22,7 @@
             "prenom": "Djamil",
             "login": "der@gmail.com",
             "password": "der123",
-            "role": "ROLE_ADMIN",
+            "role": "ROLE_JOUEUR",
             "score": 0,
             "avatar": "PHP ne supporte pas la surcharge, la destruction et la red\u00e9finition de fonctions d\u00e9j\u00e0 d\u00e9clar\u00e9es. .png"
         },
@@ -40,9 +40,181 @@
             "prenom": "baye dame",
             "login": "sambdame@gmail.com",
             "password": "samb123",
-            "role": "ROLE_ADMIN",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
+            "score": 0,
+            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+        },
+        {
+            "nom": "samb",
+            "prenom": "baye dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_JOUEUR",
             "score": 0,
             "avatar": "Logo-Sonatel-Academy-480_1-1.png"
         }
+
     ]
 }

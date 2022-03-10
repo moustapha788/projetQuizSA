@@ -62,3 +62,22 @@ define('ROLE_JOUEUR','ROLE_JOUEUR');
 ? Clé d'utilisateur admin
 */
 define('ROLE_ADMIN','ROLE_ADMIN');
+
+
+
+/* 
+? Ouverture de la balise a avec les un double quote
+*/
+define("A_HREF_DOUBLE_QUOTE_BEGIN","<a href=\"");
+/* 
+? Chemin page liste joueur avec la query param $page
+*/
+define("LISTE_ROOT",WEB_PUBLIC."?controller=user&action=dashboard&view=liste.joueurs&page=");
+/* 
+? Fermetture de la balise a avec les un double quote
+*/
+define("A_HREF_END",'</a>');
+/* 
+? Nombre de valeurs par page de la liste de joueur
+*/
+define('NBR_VALEURS_PAR_PAGE',10);

@@ -18,6 +18,8 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
             collectInfos( $infos_new_user );
             register_user( $infos_new_user );
 
+        }else{
+            header( 'location'.WEB_ROOT);
         }
     }
 }
@@ -36,6 +38,8 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             log_out();
         }elseif($_REQUEST['action']=="inscription"){
             presentation_inscription();
+        }else{
+            header("Location: " .WEB_ROOT);
         }
     }else{
         presentation_connexion();

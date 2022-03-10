@@ -55,20 +55,26 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
                         case "liste.questions":
                             presenter_vue("liste.questions.html.php","user");
                             break;
+                        default:
+                            presenter_vue_l_joueurs("liste.joueur.html.php","user");
+                            break;
                     }
                 }
                 if(is_player()){
-                    echo 'Attention  je peux vous porter pliante ! ';
+                    header("location:".WEB_ROOT);
+                    exit();
+
                 }
             }else{
                 presenter_vue_l_joueurs("liste.joueur.html.php","user");
             }
         }else{
-            echo "cette page n'existe pas";
+            header("location:".WEB_ROOT);
+            exit();
         }
     }else{
         header("location:".WEB_ROOT);
-        exit();;
+        exit();
     }
 }
 
