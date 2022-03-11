@@ -18,203 +18,238 @@
             "avatar": ""
         },
         {
-            "nom": "der",
-            "prenom": "Djamil",
-            "login": "der@gmail.com",
-            "password": "der123",
-            "role": "ROLE_JOUEUR",
+            "nom": "lo",
+            "prenom": "Mbaye",
+            "login": "mbayeLo@gmail.com",
+            "password": "mbayeLo1",
+            "role": "ROLE_ADMIN",
             "score": 0,
-            "avatar": "PHP ne supporte pas la surcharge, la destruction et la red\u00e9finition de fonctions d\u00e9j\u00e0 d\u00e9clar\u00e9es. .png"
+            "avatar": "mbayeLo_ROLE_ADMIN.png"
         },
         {
-            "nom": "wane",
-            "prenom": "Birame Ba\u00efla",
-            "login": "wanebirame@gmail.com",
-            "password": "wane123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
             "score": 15,
-            "avatar": "index.jpeg"
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
             "role": "ROLE_JOUEUR",
-            "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
         },
         {
-            "nom": "samb",
-            "prenom": "baye dame",
-            "login": "sambdame@gmail.com",
-            "password": "samb123",
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
+            "role": "ROLE_JOUEUR",
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
+        },
+        {
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
+            "role": "ROLE_JOUEUR",
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
+        },
+        {
+            "nom": "lo",
+            "prenom": "mbaye",
+            "login": "mbaye12@gmail.com",
+            "password": "mbaye12",
+            "role": "ROLE_JOUEUR",
+            "score": 15,
+            "avatar": "mbaye12_ROLE_JOUEUR.png"
+        },
+        {
+            "nom": "niass",
+            "prenom": "khadim",
+            "login": "niass@gmail.com",
+            "password": "niass123",
             "role": "ROLE_JOUEUR",
             "score": 0,
-            "avatar": "Logo-Sonatel-Academy-480_1-1.png"
+            "avatar": "niass_ROLE_JOUEUR.png"
+        },
+        {
+            "nom": "Samb",
+            "prenom": "Baye Dame",
+            "login": "sambdame@gmail.com",
+            "password": "samb123",
+            "role": "ROLE_ADMIN",
+            "score": 15,
+            "avatar": "sambdame_ROLE_ADMIN.png"
         }
-
     ]
 }

@@ -138,7 +138,6 @@
     height: 80%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
 }
 
 .nav-admin ul li {
@@ -146,19 +145,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 8px solid;
+    color: var(--color-of-gray);
 }
 
 
 /* ? active setting */
 
-.active-setting:hover {
+.active-setting {
     background-color: rgba(128, 128, 128, 0.2);
-    border-left: 8px solid var(--color-of-active-setting);
+    border-left: 8px solid var(--color-of-blue);
 }
 
-.active-setting:hover small {
-    color: black;
+.active-setting a {
+    color: var(--color-of-blue);
+    font-weight: bold;
 }
 
 .nav-admin ul li a {
@@ -168,10 +168,8 @@
 }
 
 .nav-admin ul li small {
-    color: var(--color-of-gray);
     font-size: 2em;
     font-family: normal;
-    /* width: 20%; */
 }
 
 .nav-admin ul li small:first-child {

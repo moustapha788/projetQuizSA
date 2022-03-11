@@ -49,12 +49,15 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
                         case "creer.admin":
                             presenter_vue("inscription.html.php","securite");
                             break;
+                        // Créer questions;
                         case "creer.questions":
                             presenter_vue("creer.questions.html.php","user");
                             break;
+                        // lister questions
                         case "liste.questions":
                             presenter_vue("liste.questions.html.php","user");
                             break;
+                        // default
                         default:
                             presenter_vue_l_joueurs("liste.joueur.html.php","user");
                             break;
@@ -63,18 +66,17 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
                 if(is_player()){
                     header("location:".WEB_ROOT);
                     exit();
-
                 }
             }else{
                 presenter_vue_l_joueurs("liste.joueur.html.php","user");
             }
         }else{
-            header("location:".WEB_ROOT);
-            exit();
+            // header("location:".WEB_ROOT);
+            // exit();
         }
     }else{
-        header("location:".WEB_ROOT);
-        exit();
+        // header("location:".WEB_ROOT);
+        // exit();
     }
 }
 
@@ -116,3 +118,31 @@ function presenter_vue(string $view,string $the_controller):void{
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."accueil.html.php");
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."dashboard.html.php");
 }
+
+// // ! fonction activation class 
+
+function active_class_color(string $view):string{
+    if(isset($_GET['view']) ){
+        if($_GET['view']===$view ){
+            return "active-setting ";
+        }else{
+            return "";
+        }
+    }
+}
+// // ! fonction chahgement image
+
+function change_image_when_active($view,$img_inactive,$img_active){
+    if(isset($_GET['view']) ){
+        if($_GET['view']===$view){
+            return WEB_ICONES.$img_active;
+        }else{
+            return WEB_ICONES.$img_inactive;
+        }
+    }
+}
+
+
+
+
+

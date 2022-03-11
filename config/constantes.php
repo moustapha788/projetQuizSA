@@ -41,9 +41,13 @@ define("WEB_ROOT","http://localhost/projetQuizSA/public/");
 */
 define("WEB_PUBLIC",str_replace("index.php","",$_SERVER["SCRIPT_NAME"]));
 /* 
-? URL pour charger les  images uploadés pour les phots de profil
+? URL pour charger les  images uploadés pour les phots de profil contenues uploads
 */
 define("WEB_PHOTOS",WEB_PUBLIC."uploads".DIRECTORY_SEPARATOR);
+/* 
+? URL pour charger les  icones contenues img/icones/
+*/
+define("WEB_ICONES",WEB_PUBLIC.'img'.DIRECTORY_SEPARATOR.'icones'.DIRECTORY_SEPARATOR);
 
 /* 
 ? Clé d'erreurs
@@ -62,21 +66,10 @@ define('ROLE_JOUEUR','ROLE_JOUEUR');
 ? Clé d'utilisateur admin
 */
 define('ROLE_ADMIN','ROLE_ADMIN');
-
-
-
-/* 
-? Ouverture de la balise a avec les un double quote
-*/
-define("A_HREF_DOUBLE_QUOTE_BEGIN","<a href=\"");
 /* 
 ? Chemin page liste joueur avec la query param $page
 */
 define("LISTE_ROOT",WEB_PUBLIC."?controller=user&action=dashboard&view=liste.joueurs&page=");
-/* 
-? Fermetture de la balise a avec les un double quote
-*/
-define("A_HREF_END",'</a>');
 /* 
 ? Nombre de valeurs par page de la liste de joueur
 */

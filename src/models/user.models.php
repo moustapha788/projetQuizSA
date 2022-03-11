@@ -54,3 +54,7 @@ function is_user_in_file(array $infos_of_new_user):bool{
     }
     return false;
 }
+
+
+
+

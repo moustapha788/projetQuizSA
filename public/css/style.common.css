@@ -10,6 +10,7 @@
     --color-of-active-setting: #4daf7c;
     --success-color: #2ecc71;
     --error-color: #e74c3c;
+    --mor: 4px solid black;
 }
 
 body {

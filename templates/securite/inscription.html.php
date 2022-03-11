@@ -24,6 +24,7 @@ if(isset($_SESSION[KEY_ERRORS])){
         <form class="connexion-form-inscrip" id="connexion-form-inscrip" novalidate action="<?= WEB_ROOT?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="controller" value="securite">
             <input type="hidden" name="action" value="inscription">
+            <input type="hidden" name="inscription" value="ins">
 
             <div class="control-group-inscription">
 

@@ -16,10 +16,11 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
         } elseif ( $_REQUEST[ 'action' ] == 'inscription' ) {
             $infos_new_user = [];
             collectInfos( $infos_new_user );
-            register_user( $infos_new_user );
+            register_user( $infos_new_user);
 
         }else{
             header( 'location'.WEB_ROOT);
+            exit();
         }
     }
 }
@@ -40,6 +41,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             presentation_inscription();
         }else{
             header("Location: " .WEB_ROOT);
+            exit();
         }
     }else{
         presentation_connexion();
@@ -178,16 +180,18 @@ function presentation_inscription(){
 
 
 // ! function pour collecter les infos de l'utilisateur
-function collectInfos(array &$infos_new_user,string $role=ROLE_JOUEUR,int $score=15):array{
+function collectInfos(array &$infos_new_user,int $score=15):array{
     $infos_new_user=[];
     $infos_new_user["nom"]=nettoyer_chaine($_POST['nom']);
     $infos_new_user["prenom"]=nettoyer_chaine($_POST['prenom']);
     $infos_new_user["login"]=nettoyer_chaine($_POST['login']);
     $infos_new_user["password"]=nettoyer_chaine($_POST['password1']);
     $infos_new_user["password2"]=nettoyer_chaine($_POST['password2']);
-    $infos_new_user["role"]=$role;
-    $infos_new_user["score"]=$score;
-    $infos_new_user["avatar"]=(!empty($_FILES['fileUpload']['name']))? $_FILES['fileUpload']["name"]:'default_avatar';
+    $infos_new_user["role"]=is_admin()?ROLE_ADMIN:ROLE_JOUEUR;
+    $extensions=strrchr($_FILES['fileUpload']['name'],".");
+    $avatar=strtolower(preg_replace("/(@gmail.com)$/","",$infos_new_user['login']))."_".$infos_new_user["role"].$extensions;
+    $infos_new_user["score"]=is_admin()?0:$score;
+    $infos_new_user["avatar"]=(!empty($_FILES['fileUpload']['name']))? $avatar: "undefined_image";
     return $infos_new_user;
 }
 
@@ -213,6 +217,7 @@ function register_user(array $infos_new_user):void{
         $file_name= $_FILES[ 'fileUpload' ][ 'name' ];
         $file_size= $_FILES[ 'fileUpload' ][ 'size' ];
         $file_tmp_name= $_FILES[ 'fileUpload' ][ 'tmp_name' ];
+        $file_name=$infos_new_user["avatar"];
         $file_extension= strrchr($file_name,".");
         $extensions_autorisees=['.png','.jpg','.jpeg'];
         if(!in_array($file_extension, $extensions_autorisees)){/* test extension */
@@ -223,22 +228,21 @@ function register_user(array $infos_new_user):void{
             move_uploaded_file( $file_tmp_name, ROOT."public".DIRECTORY_SEPARATOR."uploads".DIRECTORY_SEPARATOR.$file_name );
         }
     }else{/* problème de chargement */
-        $errors['upload'] ="Aucun photo chargé,voulez-vous celui là par défaut";
+        $errors['upload'] ="Aucun photo chargé.Veillez choisir un photo";
     }
 
 
     if(count($errors)===0){
-        if ( !is_connect() ) {
-            collectInfos( $infos_new_user );
-            presenter_vue_bienvenue_nouveau_JOUEUR( $infos_new_user );
-        }
-        if ( is_admin() ) {
-            collectInfos( $infos_new_user, ROLE_ADMIN,0 );
-            presenter_vue_bienvenue_nouveau_ADMIN( $infos_new_user );
-        }
+        collectInfos( $infos_new_user );
         unset($infos_new_user['password2']);
         $dataJson = array_to_json( $infos_new_user, 'users' );
         file_put_contents( PATH_DB, $dataJson );
+        if ( !is_connect() ) {
+            presenter_vue_bienvenue_nouveau_JOUEUR( $infos_new_user );
+        }
+        if (is_admin()) {
+            connexion($infos_new_user['login'],$infos_new_user['password']);
+        }
     }else{
         // erreur de registration
         $_SESSION[KEY_ERRORS]=$errors;

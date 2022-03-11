@@ -15,4 +15,3 @@ require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR."config".DIRECTORY_S
 require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."role.php";
 //Chargement du router toujour au dernier
 require_once dirname( dirname( __FILE__ ) ).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'router.php';
-

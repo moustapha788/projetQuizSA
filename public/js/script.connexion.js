@@ -5,7 +5,6 @@ const password = document.getElementById('password');
 
 //Functions-------------------------------------------------------------
 
-// !fonction showError
 function showError(input, message) {
     //Afficher les messages d'erreur
     const formControl = input.parentElement;
@@ -38,8 +37,9 @@ function checkEmail(input) {
 // !fonction isValidEmail
 function isValidEmail(login) {
     //Tester si l'email est valide
+    const reGmail = /(@gmail.com)$/;
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(login).toLowerCase());
+    return re.test(String(login).toLowerCase()) && reGmail.test(String(login));
 }
 
 // !fonction isValidPassword

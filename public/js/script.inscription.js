@@ -38,8 +38,9 @@ function getFieldNameReg(input) {
 // !
 function isValidEmail(email) {
     //Tester si l'email est valide
+    const reGmail = /(@gmail.com)$/;
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    return re.test(String(email).toLowerCase()) && reGmail.test(String(login));
 }
 
 // todo Even listeners--------------------------------------------------------
@@ -130,9 +131,9 @@ formReg.addEventListener('submit', function(e) {
         }
     }
     // ! Prenom
-    vérifierLongueurEtFormat(prenom, 3, 15, cptErrors);
+    vérifierLongueurEtFormat(prenom, 3, 30, cptErrors);
     // ! Nom
-    vérifierLongueurEtFormat(nom, 3, 15, cptErrors);
+    vérifierLongueurEtFormat(nom, 2, 15, cptErrors);
     // ! Password 1
     isValidPasswordReg(password1);
     // ! Password 2

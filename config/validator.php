@@ -10,7 +10,9 @@ function champ_obligatoire(string $key,string $data,array &$errors,string $messa
 }
 // ! fonction valid_email
 function valid_email(string $key,string $data,array &$errors,string $message="email invalid"){
-    if(!filter_var($data,FILTER_VALIDATE_EMAIL)){
+    $extension=strrchr($data,"@");
+    $validate=$extension==="@gmail.com";
+    if(!filter_var($data,FILTER_VALIDATE_EMAIL) || !$validate){
         $errors[$key]=$message;
     }
 }
@@ -48,7 +50,7 @@ function upload_photo_user(string $avatar):string{
     }
 }
 // ! get_first_name_admin
-function get_first_name_admin(string $nom):string{
+function get_last_name_admin(string $nom):string{
     if($_SESSION[KEY_USER_CONNECT][$nom]===''){
         return 'Admin';
     }else{
@@ -56,10 +58,45 @@ function get_first_name_admin(string $nom):string{
     }
 }
 // ! get_last_name_admin
-function get_last_name_admin(string $prenom):string{
+function get_first_name_admin(string $prenom):string{
     if($_SESSION[KEY_USER_CONNECT][$prenom]===''){
         return 'Admin';
     }else{
         return $_SESSION[KEY_USER_CONNECT][$prenom];
     }
+}
+
+
+
+// fonction qui permet de récupérer un chiffre(ici entier) dans une chaîne de caractères
+function filtrerNombre(string $chaine):int{
+    $nombre= abs((int)(filter_var($chaine,FILTER_SANITIZE_NUMBER_INT)));
+    return $nombre;
+}
+// fonction défilement suivant
+function suivant(int $max):string{
+    $data=$_SERVER['PHP_SELF'];
+
+    $courant=filtrerNombre($data);
+    if (1<=$courant && $courant<$max){
+        $courant++;
+    }else{
+        $courant=1;
+    }
+    $ref=LISTE_ROOT.$courant;
+
+    return $ref;
+}
+// fonction défilement arriere
+function arriere(int $max):string{
+    $data=$_SERVER['PHP_SELF'];
+    $courant=filtrerNombre($data);
+    if( 1<$courant && $courant<=$max){
+        $courant--;
+    }else {
+        $courant=$max;
+    }
+    $ref=LISTE_ROOT.$courant;
+    
+    return $ref;
 }

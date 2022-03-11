@@ -44,12 +44,15 @@
 .bascule {
     position: absolute;
     bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
+    height: 90px;
     padding: 2% 0%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-self: center;
+    /* background-color: red; */
 }
 
 .bascule button {
@@ -60,6 +63,15 @@
     color: #fff;
     border: none;
     background-color: var(--color-of-blue);
+    position: absolute;
+}
+
+.bascule button:first-child {
+    left: 0;
+}
+
+.bascule button:last-child {
+    right: 0;
 }
 
 .bascule button a {
@@ -74,7 +86,7 @@
     background: linear-gradient( var(--color-of-blue), #fff);
     border-radius: 10px;
     width: 60%;
-    height: 90%;
+    height: 100%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
